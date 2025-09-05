@@ -4,234 +4,212 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Christian — 6th Grade Assignments (Canvas)</title>
-  <meta name="description" content="Christian — 6th Grade assignments with direct Canvas links." />
+  <meta name="description" content="Christian — 6th Grade assignments with direct Canvas links. Auto-updated from Canvas calendar feed." />
+
   <style>
-    :root{
-      --bg1:#0e1a2b; --bg2:#14243a;
-      --grad1:#6a8dff; --grad2:#7b5cff;
-      --ink:#1e293b; --muted:#5b6b86; --card:#ffffff;
-      --good:#38a169; --warn:#e53e3e; --cold:#4299e1; --past:#9f7aea;
+    /* ===== Base layout & type ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      color: #0f172a;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      color:#0f172a; background: radial-gradient(1200px 600px at 10% -10%, #1b2a46, transparent 55%),
-                 radial-gradient(900px 600px at 110% 10%, #1c2e55, transparent 55%),
-                 linear-gradient(180deg, var(--bg1), var(--bg2));
-      min-height:100vh; padding:28px 20px 40px;
+    .wrap { max-width: 1200px; margin: 0 auto; }
+
+    /* ===== Header (indigo gradient like your mock) ===== */
+    .header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      border-radius: 20px;
+      padding: 24px 24px 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      margin-bottom: 18px;
     }
-    .wrap{max-width:1200px;margin:0 auto}
-    .header{
-      background: linear-gradient(135deg, rgba(106,141,255,.2), rgba(123,92,255,.2));
-      border:1px solid rgba(255,255,255,.16);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
-      border-radius:18px; padding:22px 22px 18px; color:#e6edf3;
-      position:relative; overflow:hidden;
-    }
-    .header:after{
-      content:""; position:absolute; inset:0;
-      background: linear-gradient(90deg, rgba(106,141,255,.25), rgba(123,92,255,.1), rgba(106,141,255,.25));
-      mix-blend-mode: screen; pointer-events:none;
-    }
-    h1{font-size:clamp(22px, 3.2vw, 34px); font-weight:900; letter-spacing:.3px}
-    .subtitle{opacity:.9; margin-top:6px}
-    .legend{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
-    .chip{
+    h1 { font-size: clamp(22px, 3.2vw, 34px); font-weight: 900; letter-spacing: .2px; }
+    .subtitle { opacity: .95; margin-top: 6px; }
+
+    /* Legend chips */
+    .legend { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .chip {
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px; border-radius:999px; font-weight:700; font-size:12px;
-      border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.08); color:#e6edf3;
+      background: rgba(255,255,255,.14); color:#fff; border:1px solid rgba(255,255,255,.25);
     }
-    .chip .dot{width:8px;height:8px;border-radius:50%}
-    .dot.warn{background:var(--warn)} .dot.good{background:var(--good)}
-    .dot.cold{background:var(--cold)} .dot.past{background:var(--past)}
+    .chip .dot { width:8px; height:8px; border-radius:50%; }
+    .dot.warn{background:#e53e3e} .dot.good{background:#38a169}
+    .dot.cold{background:#4299e1} .dot.past{background:#9f7aea}
 
-    .container{
-      margin-top:16px; background:rgba(255,255,255,.9); backdrop-filter: blur(10px);
-      border-radius:20px; box-shadow: 0 20px 40px rgba(0,0,0,.20); padding:28px;
-      border:1px solid rgba(255,255,255,.6);
+    /* ===== Main container & KPIs ===== */
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      padding: 28px;
+      backdrop-filter: blur(10px);
     }
-    .summary{
-      display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:12px; margin-bottom:18px;
+    .summary {
+      background: linear-gradient(135deg, #2d3748, #4a5568);
+      color: white;
+      padding: 18px;
+      border-radius: 15px;
+      margin-bottom: 22px;
+      text-align: left;
     }
-    .stat{
-      background: #f8fafc; border:1px solid #e2e8f0; border-radius:14px; padding:14px 16px;
+    .summary-grid { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+    .stat {
+      background:#ffffff; border:1px solid #e2e8f0; border-radius:14px;
+      padding:14px 16px;
     }
-    .stat .num{font-size:28px; font-weight:900; color:#0f172a}
-    .stat .lbl{color:#475569}
+    .num { font-size: 28px; font-weight: 900; color:#1f2937; }
+    .lbl { color:#475569; }
 
-    .assignments-grid{
-      display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap:16px;
-    }
-    .assignment-card{
-      position:relative; background:var(--card); border-radius:16px; padding:18px 18px 20px;
-      border-left:5px solid transparent; box-shadow: 0 10px 26px rgba(2,6,23,.12);
+    /* ===== Assignment grid & cards ===== */
+    .assignments-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 16px; }
+    .assignment-card {
+      position:relative; background:#fff; border-radius: 15px; padding: 18px 18px 20px;
+      border-left: 5px solid transparent;
+      box-shadow: 0 8px 20px rgba(0,0,0,.08);
       transition: transform .2s ease, box-shadow .2s ease;
     }
-    .assignment-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 34px rgba(2,6,23,.18); }
-    .assignment-title{font-size:18px; font-weight:800; color:var(--ink); line-height:1.25; margin-bottom:8px}
-    .course-info{color:var(--muted); font-weight:600; margin-bottom:10px}
-    .due-date{display:flex; align-items:center; gap:8px; font-weight:700; margin-bottom:14px}
-    .due-date-icon{width:16px;height:16px}
-    .status-badge{
-      position:absolute; top:10px; right:10px; padding:6px 10px; border-radius:999px; font-size:11px; font-weight:800; color:#fff;
-    }
-    .assignment-link{
-      display:inline-block; text-decoration:none; color:#001022; font-weight:800;
-      padding:10px 14px; border-radius:10px; background: linear-gradient(135deg, var(--grad1), var(--grad2));
-      box-shadow: 0 6px 14px rgba(106,141,255,.35); transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .assignment-link:hover{ transform: translateY(-1px); box-shadow: 0 10px 18px rgba(106,141,255,.45); }
+    .assignment-card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(0,0,0,.12); }
 
-    /* Themes per status */
-    .urgent{ border-left-color: var(--warn); background: linear-gradient(180deg, #fff6f6, #ffffff); }
-    .urgent .due-date{ color: var(--warn); } .urgent .status-badge{ background: var(--warn); }
-    .completed{ border-left-color: var(--good); background: linear-gradient(180deg, #f3fff7, #ffffff); }
-    .completed .due-date{ color: var(--good);} .completed .status-badge{ background: var(--good);}
-    .no-due{ border-left-color: var(--cold); background: linear-gradient(180deg, #f0f8ff, #ffffff); }
-    .no-due .due-date{ color: var(--cold);} .no-due .status-badge{ background: var(--cold);}
-    .past-due{ border-left-color: var(--past); background: linear-gradient(180deg, #faf5ff, #ffffff); }
-    .past-due .due-date{ color: var(--past);} .past-due .status-badge{ background: var(--past);}
+    .assignment-title { font-size: 18px; font-weight: 800; color: #2d3748; line-height: 1.25; margin-bottom: 8px; }
+    .course-info { font-size: 0.95rem; color: #4a5568; margin-bottom: 10px; font-weight: 600; }
+    .due-date { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 14px; }
+    .due-date-icon { width: 16px; height: 16px; }
+
+    .status-badge {
+      position: absolute; top: 10px; right: 10px;
+      padding: 6px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; color: #fff;
+      text-transform: uppercase;
+    }
+    .assignment-link {
+      display: inline-block;
+      background: linear-gradient(135deg, #4299e1, #3182ce);
+      color: white; text-decoration: none;
+      padding: 10px 14px; border-radius: 10px; font-weight: 800;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 6px 14px rgba(122,182,255,.35);
+    }
+    .assignment-link:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(122,182,255,.45); }
+
+    /* ===== Status themes (exactly like your static demo) ===== */
+    .urgent{
+      border-left-color:#e53e3e;
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 20%, #ffffff 100%);
+    }
+    .urgent .due-date { color:#e53e3e }
+    .urgent .status-badge { background:#e53e3e }
+
+    .completed{
+      border-left-color:#38a169;
+      background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 20%, #ffffff 100%);
+    }
+    .completed .due-date { color:#38a169 }
+    .completed .status-badge { background:#38a169 }
+
+    .no-due{
+      border-left-color:#4299e1;
+      background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 20%, #ffffff 100%);
+    }
+    .no-due .due-date { color:#4299e1 }
+    .no-due .status-badge { background:#4299e1 }
+
+    .past-due{
+      border-left-color:#9f7aea;
+      background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 20%, #ffffff 100%);
+    }
+    .past-due .due-date { color:#9f7aea }
+    .past-due .status-badge { background:#9f7aea }
+
+    /* “Upcoming” style (for items with future due dates) */
+    .todo{
+      border-left-color:#3182ce;
+      background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 20%, #ffffff 100%);
+    }
+    .todo .due-date { color:#3182ce }
+    .todo .status-badge { background:#3182ce }
 
     @media (max-width: 860px){
-      .container{padding:20px}
-      .summary{grid-template-columns: 1fr 1fr}
+      .container{ padding: 20px; }
+      .summary-grid{ grid-template-columns: 1fr 1fr; }
     }
   </style>
-<!-- Kids pastel theme overrides -->
-<style>
-  :root{
-    /* softer brand + status colors */
-    --bg1:#eff6ff;   /* light sky */
-    --bg2:#f5f0ff;   /* light lavender */
-    --grad1:#7ab6ff; /* button gradient start */
-    --grad2:#a69cff; /* button gradient end  */
-    --ink:#22324b;
-    --muted:#6b7a95;
-    --card:#ffffff;
-    --good:#34d399;  /* mint */
-    --warn:#ff8a8a;  /* soft coral */
-    --cold:#7ab6ff;  /* sky */
-    --past:#b49cff;  /* lavender */
-  }
-
-  /* background + header */
-  body{
-    background:
-      radial-gradient(1200px 600px at 10% -10%, #e8f0ff, transparent 55%),
-      radial-gradient(900px 600px at 110% 10%, #ede8ff, transparent 55%),
-      linear-gradient(180deg, var(--bg1), var(--bg2));
-  }
-  .header{
-    background: linear-gradient(135deg, rgba(188,220,255,.9), rgba(216,204,255,.9));
-    border:1px solid rgba(255,255,255,.6);
-    color:#1b2540;           /* darker text for contrast */
-  }
-  .header:after{ display:none; }
-
-  /* container + cards feel lighter */
-  .container{ background:rgba(255,255,255,.96); box-shadow:0 8px 22px rgba(33,37,41,.08) }
-  .assignment-card{ box-shadow:0 8px 20px rgba(33,37,41,.06) }
-  .assignment-card:hover{ box-shadow:0 12px 26px rgba(33,37,41,.10) }
-
-  /* status styles (soft tints) */
-  .urgent{
-    border-left-color:#ff9aa2;
-    background:linear-gradient(180deg,#fff5f6,#ffffff);
-  }
-  .urgent .due-date{ color:#ff8a8a }
-  .urgent .status-badge{ background:#ff8a8a }
-
-  .completed{
-    border-left-color:#7edfb5;
-    background:linear-gradient(180deg,#f2fff8,#ffffff);
-  }
-  .completed .due-date{ color:#34d399 }
-  .completed .status-badge{ background:#34d399 }
-
-  .no-due{
-    border-left-color:#9fccff;
-    background:linear-gradient(180deg,#f3f8ff,#ffffff);
-  }
-  .no-due .due-date{ color:#7ab6ff }
-  .no-due .status-badge{ background:#7ab6ff }
-
-  .past-due{
-    border-left-color:#c3b3ff;
-    background:linear-gradient(180deg,#faf7ff,#ffffff);
-  }
-  .past-due .due-date{ color:#b49cff }
-  .past-due .status-badge{ background:#b49cff }
-
-  /* buttons + chips */
-  .assignment-link{
-    background:linear-gradient(135deg,var(--grad1),var(--grad2));
-    box-shadow:0 6px 14px rgba(122,182,255,.35);
-  }
-  .assignment-link:hover{ box-shadow:0 10px 18px rgba(122,182,255,.45) }
-
-  .chip{ background:#ffffff; color:#3b4a6b; border-color:#e6e9f2 }
-</style>
-
 </head>
+
 <body>
   <div class="wrap">
-    <section class="header">
+    <!-- Header -->
+    <header class="header">
       <h1>🎒 Christian — 6th Grade Assignments (Canvas)</h1>
-      <div class="subtitle">Live links to Canvas assignments. This page updates automatically from the Canvas calendar feed.</div>
+      <p class="subtitle">Live links to Canvas assignments. This page updates automatically from the Canvas calendar feed.</p>
       <div class="legend" aria-label="Legend">
         <span class="chip"><span class="dot warn"></span> Due Today</span>
         <span class="chip"><span class="dot past"></span> Past Due</span>
         <span class="chip"><span class="dot cold"></span> No Due Date</span>
         <span class="chip"><span class="dot good"></span> Completed</span>
       </div>
-    </section>
+    </header>
 
+    <!-- Main -->
     <main class="container">
-      <!-- Summary KPIs (auto-filled below) -->
+      <!-- KPI Summary -->
       <section class="summary" aria-label="Summary">
-        <div class="stat">
-          <div class="num" id="kpi-total">—</div>
-          <div class="lbl">Total Assignments</div>
-        </div>
-        <div class="stat">
-          <div class="num" id="kpi-today">—</div>
-          <div class="lbl">Due Today</div>
-        </div>
-        <div class="stat">
-          <div class="num" id="kpi-complete">—</div>
-          <div class="lbl">Completed</div>
-        </div>
-        <div class="stat">
-          <div class="num" id="kpi-nodue">—</div>
-          <div class="lbl">No Due Date</div>
+        <div class="summary-grid">
+          <div class="stat">
+            <div class="num" id="kpi-total">—</div>
+            <div class="lbl">Total Assignments</div>
+          </div>
+          <div class="stat">
+            <div class="num" id="kpi-today">—</div>
+            <div class="lbl">Due Today</div>
+          </div>
+          <div class="stat">
+            <div class="num" id="kpi-complete">—</div>
+            <div class="lbl">Completed</div>
+          </div>
+          <div class="stat">
+            <div class="num" id="kpi-nodue">—</div>
+            <div class="lbl">No Due Date</div>
+          </div>
         </div>
       </section>
 
-      <!-- Assignment cards injected here -->
+      <!-- Cards go here -->
       <section class="assignments-grid" id="grid">
         <p style="color:#475569">Loading assignments…</p>
       </section>
     </main>
   </div>
 
-  <!-- Loader: pulls docs/assignments.json built by the GitHub Action -->
+  <!-- ===== Loader: pulls docs/assignments.json built by the GitHub Action ===== -->
   <script>
   (async () => {
     const grid = document.getElementById('grid');
     const set = (id, v) => document.getElementById(id).textContent = v;
 
-    const badgeFor = s => s==='urgent'?'Due Today':s==='past-due'?'Past Due':s==='no-due'?'No Due Date':'Upcoming';
-    const clsFor = s => s==='urgent'?'urgent':s==='past-due'?'past-due':s==='no-due'?'no-due':'';
+    const badgeFor = s => (
+      s==='urgent'  ? 'Due Today' :
+      s==='past-due'? 'Past Due' :
+      s==='no-due'  ? 'No Due Date' :
+      s==='completed' ? 'Completed' : 'Upcoming'
+    );
 
-    const dateRow = (iso) => {
+    const clsFor = s => (
+      s==='urgent' || s==='past-due' || s==='no-due' || s==='completed'
+        ? s
+        : 'todo' // future items with due dates
+    );
+
+    const dateRow = (iso, status) => {
       const txt = iso ? new Date(iso).toLocaleString() : 'No Due Date';
-      return `
-        <div class="due-date">
-          <svg class="due-date-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-          </svg>
-          ${txt}
-        </div>`;
+      const icon = `
+        <svg class="due-date-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+        </svg>`;
+      return `<div class="due-date">${icon} ${txt}</div>`;
     };
 
     try {
@@ -242,25 +220,25 @@
       // KPIs
       set('kpi-total', items.length);
       set('kpi-today', items.filter(i=>i.status==='urgent').length);
-      set('kpi-complete', 0); // ICS can’t tell completion
+      set('kpi-complete', items.filter(i=>i.status==='completed').length || 0); // ICS usually doesn't provide this
       set('kpi-nodue', items.filter(i=>i.status==='no-due').length);
 
-      // Cards
+      // Render cards
       grid.innerHTML = items.map(i => `
         <article class="assignment-card ${clsFor(i.status)}">
           <div class="status-badge">${badgeFor(i.status)}</div>
           <div class="assignment-title">${i.title}</div>
-          <div class="course-info">${i.course||''}</div>
-          ${dateRow(i.due_at)}
+          <div class="course-info">${i.course || ''}</div>
+          ${dateRow(i.due_at, i.status)}
           ${i.url ? `<a class="assignment-link" href="${i.url}" target="_blank" rel="noopener">View Assignment</a>` : ''}
         </article>
       `).join('');
+
     } catch (e) {
       grid.innerHTML = '<p style="color:#b91c1c">assignments.json not found yet — the sync will create it shortly.</p>';
       console.error(e);
     }
   })();
   </script>
-
 </body>
 </html>

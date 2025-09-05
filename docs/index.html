@@ -97,6 +97,81 @@
       .summary{grid-template-columns: 1fr 1fr}
     }
   </style>
+<!-- Kids pastel theme overrides -->
+<style>
+  :root{
+    /* softer brand + status colors */
+    --bg1:#eff6ff;   /* light sky */
+    --bg2:#f5f0ff;   /* light lavender */
+    --grad1:#7ab6ff; /* button gradient start */
+    --grad2:#a69cff; /* button gradient end  */
+    --ink:#22324b;
+    --muted:#6b7a95;
+    --card:#ffffff;
+    --good:#34d399;  /* mint */
+    --warn:#ff8a8a;  /* soft coral */
+    --cold:#7ab6ff;  /* sky */
+    --past:#b49cff;  /* lavender */
+  }
+
+  /* background + header */
+  body{
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #e8f0ff, transparent 55%),
+      radial-gradient(900px 600px at 110% 10%, #ede8ff, transparent 55%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+  }
+  .header{
+    background: linear-gradient(135deg, rgba(188,220,255,.9), rgba(216,204,255,.9));
+    border:1px solid rgba(255,255,255,.6);
+    color:#1b2540;           /* darker text for contrast */
+  }
+  .header:after{ display:none; }
+
+  /* container + cards feel lighter */
+  .container{ background:rgba(255,255,255,.96); box-shadow:0 8px 22px rgba(33,37,41,.08) }
+  .assignment-card{ box-shadow:0 8px 20px rgba(33,37,41,.06) }
+  .assignment-card:hover{ box-shadow:0 12px 26px rgba(33,37,41,.10) }
+
+  /* status styles (soft tints) */
+  .urgent{
+    border-left-color:#ff9aa2;
+    background:linear-gradient(180deg,#fff5f6,#ffffff);
+  }
+  .urgent .due-date{ color:#ff8a8a }
+  .urgent .status-badge{ background:#ff8a8a }
+
+  .completed{
+    border-left-color:#7edfb5;
+    background:linear-gradient(180deg,#f2fff8,#ffffff);
+  }
+  .completed .due-date{ color:#34d399 }
+  .completed .status-badge{ background:#34d399 }
+
+  .no-due{
+    border-left-color:#9fccff;
+    background:linear-gradient(180deg,#f3f8ff,#ffffff);
+  }
+  .no-due .due-date{ color:#7ab6ff }
+  .no-due .status-badge{ background:#7ab6ff }
+
+  .past-due{
+    border-left-color:#c3b3ff;
+    background:linear-gradient(180deg,#faf7ff,#ffffff);
+  }
+  .past-due .due-date{ color:#b49cff }
+  .past-due .status-badge{ background:#b49cff }
+
+  /* buttons + chips */
+  .assignment-link{
+    background:linear-gradient(135deg,var(--grad1),var(--grad2));
+    box-shadow:0 6px 14px rgba(122,182,255,.35);
+  }
+  .assignment-link:hover{ box-shadow:0 10px 18px rgba(122,182,255,.45) }
+
+  .chip{ background:#ffffff; color:#3b4a6b; border-color:#e6e9f2 }
+</style>
+
 </head>
 <body>
   <div class="wrap">
@@ -186,5 +261,6 @@
     }
   })();
   </script>
+
 </body>
 </html>

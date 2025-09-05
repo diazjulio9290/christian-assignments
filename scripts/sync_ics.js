@@ -1,17 +1,29 @@
 // scripts/sync_ics.js
 const fs = require('fs');
+const http = require('http');
 const https = require('https');
-const ical = require('ical');
+const ical = require('node-ical');
 
 const ICS_URL = process.env.ICS_URL;
 if (!ICS_URL) { console.error('Missing ICS_URL'); process.exit(1); }
 
-https.get(ICS_URL, (res) => {
+const client = ICS_URL.startsWith('https') ? https : http;
+
+client.get(ICS_URL, (res) => {
+  if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+    // follow redirect
+    const next = res.headers.location;
+    return client.get(next, res2 => pipe(res2));
+  }
+  pipe(res);
+}).on('error', err => { console.error('HTTP error:', err); process.exit(1); });
+
+function pipe(res){
   let raw = '';
   res.on('data', c => raw += c);
   res.on('end', () => {
     try {
-      const events = ical.parseICS(raw);
+      const events = ical.sync.parseICS(raw);
 
       const today = new Date(); today.setHours(0,0,0,0);
       const startToday = new Date(today);
@@ -42,20 +54,21 @@ https.get(ICS_URL, (res) => {
             status: classify(dueISO)
           };
         })
-        // de-dupe by title+due date
-        .reduce((acc, it) => {
+        .reduce((acc, it) => { // de-dupe by title+due
           const key = `${it.title}-${it.due_at||'none'}`;
-          if (!acc.seen.has(key)) { acc.seen.add(key); acc.out.push(it); }
+          if (!acc.has(key)) acc.set(key, it);
           return acc;
-        }, { seen:new Set(), out:[] }).out
+        }, new Map())
+        ;
+      const out = Array.from(items.values())
         .sort((a,b) => (a.due_at||'9999').localeCompare(b.due_at||'9999'));
 
       fs.mkdirSync('docs', { recursive: true });
-      fs.writeFileSync('docs/assignments.json', JSON.stringify(items, null, 2));
-      console.log(`Wrote ${items.length} → docs/assignments.json`);
+      fs.writeFileSync('docs/assignments.json', JSON.stringify(out, null, 2));
+      console.log(`Wrote ${out.length} → docs/assignments.json`);
     } catch (err) {
       console.error('Parse error:', err);
       process.exit(1);
     }
   });
-}).on('error', err => { console.error('HTTP error:', err); process.exit(1); });
+}

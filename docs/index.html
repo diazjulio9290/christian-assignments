@@ -1,94 +1,454 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Assignments</title>
-  <style>
-    :root{--bg:#0b0f14;--card:#161e2a;--muted:#9fb0c3;--accent:#7ee787}
-    body{margin:0;background:var(--bg);color:#e6edf3;font:16px/1.5 system-ui}
-    .wrap{max-width:980px;margin:0 auto;padding:28px}
-    h1{margin:0 0 8px}
-    p{color:var(--muted);margin:0 0 18px}
-    .card{background:var(--card);border:1px solid #243043;border-radius:14px;padding:18px}
-    .row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-    input,select{background:#0e1622;color:#e6edf3;border:1px solid #243043;border-radius:10px;padding:10px 12px}
-    table{width:100%;border-collapse:collapse;margin-top:8px}
-    th,td{padding:10px;border-bottom:1px solid #243043;text-align:left}
-    th{color:var(--muted);font-weight:600}
-    .tag{padding:4px 8px;border-radius:999px;border:1px solid #2b3a4e}
-    .tag.ok{background:#0f2616;border-color:#2c593a;color:var(--accent)}
-    .tag.todo{background:#1a1421;border-color:#4a3c5a;color:#caa6ff}
-    .tag.late{background:#2a1414;border-color:#6a3a3a;color:#ff6b6b}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Assignments Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .assignments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .assignment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .assignment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .urgent {
+            border-left-color: #e53e3e;
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 20%, #ffffff 100%);
+        }
+        
+        .completed {
+            border-left-color: #38a169;
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 20%, #ffffff 100%);
+        }
+        
+        .no-due {
+            border-left-color: #4299e1;
+            background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 20%, #ffffff 100%);
+        }
+        
+        .past-due {
+            border-left-color: #9f7aea;
+            background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 20%, #ffffff 100%);
+        }
+        
+        .assignment-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .course-info {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .due-date {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .due-date-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+        
+        .urgent .due-date { color: #e53e3e; }
+        .completed .due-date { color: #38a169; }
+        .no-due .due-date { color: #4299e1; }
+        .past-due .due-date { color: #9f7aea; }
+        
+        .assignment-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .assignment-link:hover {
+            background: linear-gradient(135deg, #3182ce, #2b77cb);
+            transform: translateY(-1px);
+        }
+        
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .urgent .status-badge {
+            background: #e53e3e;
+            color: white;
+        }
+        
+        .completed .status-badge {
+            background: #38a169;
+            color: white;
+        }
+        
+        .no-due .status-badge {
+            background: #4299e1;
+            color: white;
+        }
+        
+        .past-due .status-badge {
+            background: #9f7aea;
+            color: white;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .summary h2 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .summary-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .assignments-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Assignments</h1>
-    <p>Quick view to check homework/tasks. Filter by course or status.</p>
-
-    <div class="card">
-      <div class="row">
-        <input id="q" placeholder="Search title…" />
-        <select id="course">
-          <option value="">All courses</option>
-        </select>
-        <select id="status">
-          <option value="">All status</option>
-          <option value="todo">To-do</option>
-          <option value="ok">Done</option>
-          <option value="late">Late</option>
-        </select>
-      </div>
-
-      <table id="tbl">
-        <thead>
-          <tr><th>Title</th><th>Course</th><th>Due</th><th>Status</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <div class="container">
+        <h1>📚 Canvas Assignments Overview</h1>
+        
+        <div class="summary">
+            <h2>Assignment Summary</h2>
+            <div class="summary-stats">
+                <div class="stat">
+                    <span class="stat-number">16</span>
+                    <span class="stat-label">Total Assignments</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Due Today</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">No Due Date</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="assignments-grid">
+            <!-- Due Today -->
+            <div class="assignment-card urgent">
+                <div class="status-badge">Due Today</div>
+                <div class="assignment-title">Letter to Mr. Nagelmann</div>
+                <div class="course-info">Language Arts 6 (SUMMA) - Mr. Nagelmann</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Due: September 5 at 11:59pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/156462/assignments/2242506" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <!-- Completed -->
+            <div class="assignment-card completed">
+                <div class="status-badge">Completed</div>
+                <div class="assignment-title">FINISHED: Sketchbook</div>
+                <div class="course-info">Art 6 (F126X) - Sem. 1 Stevenson</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Was Due: August 29 at 4:30pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/156040/assignments/2246941" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <!-- Past Due -->
+            <div class="assignment-card past-due">
+                <div class="status-badge">Past Due</div>
+                <div class="assignment-title">08/29 & 09/02/25 6th: Learning Formative</div>
+                <div class="course-info">Mathematics 7/8 (SUMMA) - Mr. Brandon</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Was Due: August 29 at 11:59pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/156538/assignments/2248205" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <!-- No Due Date Assignments -->
+            <div class="assignment-card no-due">
+                <div class="status-badge">No Due Date</div>
+                <div class="assignment-title">Opinion Essay</div>
+                <div class="course-info">Writing</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    No Due Date
+                </div>
+                <a href="https://bsd.instructure.com/courses/141566/assignments/2142190" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card no-due">
+                <div class="status-badge">No Due Date</div>
+                <div class="assignment-title">Ecosystem Impact Essay</div>
+                <div class="course-info">Writing</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    No Due Date
+                </div>
+                <a href="https://bsd.instructure.com/courses/141566/assignments/2136438" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card past-due">
+                <div class="status-badge">Past Due</div>
+                <div class="assignment-title">Opinion Essay</div>
+                <div class="course-info">Writing</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Was Due: February 29 at 3pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/127993/assignments/1830971" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card no-due">
+                <div class="status-badge">No Due Date</div>
+                <div class="assignment-title">Task 1: The Beauty of Bugs!</div>
+                <div class="course-info">Science/Health</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    No Due Date
+                </div>
+                <a href="https://bsd.instructure.com/courses/141523/assignments/2121664" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card no-due">
+                <div class="status-badge">No Due Date</div>
+                <div class="assignment-title">Task 2: Packing List</div>
+                <div class="course-info">Science/Health</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    No Due Date
+                </div>
+                <a href="https://bsd.instructure.com/courses/141523/assignments/2121665" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card no-due">
+                <div class="status-badge">No Due Date</div>
+                <div class="assignment-title">Task 3: Take Action!</div>
+                <div class="course-info">Science/Health</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    No Due Date
+                </div>
+                <a href="https://bsd.instructure.com/courses/141523/assignments/2121666" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <!-- Past Assignments from Previous Year -->
+            <div class="assignment-card past-due">
+                <div class="status-badge">23-24 Course</div>
+                <div class="assignment-title">Extra Pages - optional</div>
+                <div class="course-info">23-24 Course</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Was Due: June 7 at 3pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/127945/assignments/1876029" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card past-due">
+                <div class="status-badge">23-24 Course</div>
+                <div class="assignment-title">Weathering</div>
+                <div class="course-info">23-24 Course</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Was Due: February 2 at 3pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/127945/assignments/1761058" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card past-due">
+                <div class="status-badge">23-24 Course</div>
+                <div class="assignment-title">Erosion</div>
+                <div class="course-info">23-24 Course</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Was Due: February 2 at 3pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/127945/assignments/1761055" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card past-due">
+                <div class="status-badge">23-24 Course</div>
+                <div class="assignment-title">Animal Report - Type Draft</div>
+                <div class="course-info">23-24 Course</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Was Due: May 24 at 3pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/127945/assignments/1864980" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card past-due">
+                <div class="status-badge">Past Due</div>
+                <div class="assignment-title">#2 Opinion Essay</div>
+                <div class="course-info">Writing</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Was Due: March 22 at 3pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/127993/assignments/1842456" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card no-due">
+                <div class="status-badge">23-24 Course</div>
+                <div class="assignment-title">Earth's Layers Art Project - Painting</div>
+                <div class="course-info">23-24 Course</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    No Due Date
+                </div>
+                <a href="https://bsd.instructure.com/courses/127945/assignments/1750850" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+            
+            <div class="assignment-card past-due">
+                <div class="status-badge">23-24 Course</div>
+                <div class="assignment-title">Volcano Expert Book</div>
+                <div class="course-info">23-24 Course</div>
+                <div class="due-date">
+                    <svg class="due-date-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Was Due: January 27 at 3pm
+                </div>
+                <a href="https://bsd.instructure.com/courses/127945/assignments/1750852" class="assignment-link" target="_blank">View Assignment</a>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <script>
-    // 🔧 Edit this list as you like (or load from a JSON file later)
-    const data = [
-      { title: "Algebra – Practice Set 3", course: "Math", due: "2025-09-10", status: "todo" },
-      { title: "Reading Log – Ch. 4", course: "English", due: "2025-09-08", status: "ok" },
-      { title: "Science Lab Report", course: "Science", due: "2025-09-07", status: "late" },
-      { title: "History – Map Quiz", course: "History", due: "2025-09-12", status: "todo" }
-    ];
-
-    const $q = document.getElementById('q');
-    const $course = document.getElementById('course');
-    const $status = document.getElementById('status');
-    const $tbody = document.querySelector('#tbl tbody');
-
-    // build course list
-    [...new Set(data.map(d => d.course))].sort().forEach(c => {
-      const o = document.createElement('option'); o.value = c; o.textContent = c; $course.appendChild(o);
-    });
-
-    function tag(status){
-      const map = { ok:"Done", todo:"To-do", late:"Late" };
-      return `<span class="tag ${status}">${map[status]||status}</span>`;
-    }
-    function render(){
-      const q = $q.value.toLowerCase(), c = $course.value, s = $status.value;
-      const rows = data
-        .filter(d => (!c || d.course===c) && (!s || d.status===s) &&
-                     (d.title.toLowerCase().includes(q)))
-        .sort((a,b) => a.due.localeCompare(b.due));
-      $tbody.innerHTML = rows.map(d => `
-        <tr>
-          <td>${d.title}</td>
-          <td>${d.course}</td>
-          <td>${d.due}</td>
-          <td>${tag(d.status)}</td>
-        </tr>`).join('');
-    }
-    [$q,$course,$status].forEach(el => el.addEventListener('input', render));
-    render();
-  </script>
 </body>
 </html>

@@ -353,25 +353,26 @@
     <main class="container">
       <!-- KPI Summary -->
       <section class="summary" aria-label="Mission Summary">
-        <div class="summary-grid">
-          <div class="stat">
-            <div class="num" id="kpi-total">—</div>
-            <div class="lbl">Total Missions</div>
-          </div>
-          <div class="stat">
-            <div class="num" id="kpi-today">—</div>
-            <div class="lbl">Urgent Today</div>
-          </div>
-          <div class="stat">
-            <div class="num" id="kpi-complete">—</div>
-            <div class="lbl">Completed</div>
-          </div>
-          <div class="stat">
-            <div class="num" id="kpi-nodue">—</div>
-            <div class="lbl">No Due Date</div>
-          </div>
-        </div>
-      </section>
+  <div class="summary-grid">
+    <div class="stat">
+      <div class="num" id="kpi-total">—</div>
+      <div class="lbl">Total Missions</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="kpi-today">—</div>
+      <div class="lbl">Urgent Today</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="kpi-pastdue">—</div>
+      <div class="lbl">Past Due</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="kpi-nodue">—</div>
+      <div class="lbl">No Due Date</div>
+    </div>
+  </div>
+</section>
+
 
       <!-- Cards go here -->
       <section class="assignments-grid" id="grid">
@@ -416,13 +417,13 @@
     if (!res.ok) throw new Error('No assignments.json yet');
     const items = await res.json();
 
-    // KPIs
+    // KPIs (Past Due replaces Completed)
     set('kpi-total', items.length);
     set('kpi-today', items.filter(i=>i.status==='urgent').length);
-    set('kpi-complete', items.filter(i=>i.status==='completed').length || 0);
+    set('kpi-pastdue', items.filter(i=>i.status==='past-due').length);
     set('kpi-nodue', items.filter(i=>i.status==='no-due').length);
 
-    // Render cards (no link button)
+    // Cards
     grid.innerHTML = items.map(i => `
       <article class="assignment-card ${clsFor(i.status)}">
         <div class="status-badge">${badgeFor(i.status)}</div>

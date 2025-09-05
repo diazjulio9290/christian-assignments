@@ -383,7 +383,6 @@
     </main>
   </div>
 
-  <!-- ===== Loader: pulls docs/assignments.json built by the GitHub Action ===== -->
   <script>
   (async () => {
     const grid = document.getElementById('grid');
@@ -393,22 +392,37 @@
       s==='urgent'  ? 'Due Today' :
       s==='past-due'? 'Past Due' :
       s==='no-due'  ? 'No Due Date' :
-      s==='completed' ? 'Complete' : 'Upcoming'
+      s==='completed' ? 'Completed' : 'Upcoming'
     );
 
     const clsFor = s => (
       s==='urgent' || s==='past-due' || s==='no-due' || s==='completed'
-        ? s
-        : 'todo' // future items with due dates
+        ? s : 'todo'
     );
 
-    const dateRow = (iso, status) => {
+    // treat calendar links as "no usable link"
+    const isUsableLink = (url) => {
+      if (!url) return false;
+      try {
+        const u = new URL(url, location.href).toString();
+        if (/\/calendar(\/|\?|$)/i.test(u)) return false; // generic calendar
+        // Prefer common assignment-like targets; if none match, allow any non-calendar http(s)
+        if (/\/courses\/\d+\/(assignments|quizzes|discussion_topics|modules(\/items)?|pages|announcements)\/?/i.test(u)) return true;
+        return /^https?:\/\//i.test(u);
+      } catch {
+        return false;
+      }
+    };
+
+    const dateRow = (iso) => {
       const txt = iso ? new Date(iso).toLocaleString() : 'No Due Date';
-      const icon = `
-        <svg class="due-date-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-          <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-        </svg>`;
-      return `<div class="due-date">${icon} ${txt}</div>`;
+      return `
+        <div class="due-date">
+          <svg class="due-date-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+          </svg>
+          ${txt}
+        </div>`;
     };
 
     try {
@@ -422,17 +436,19 @@
       set('kpi-complete', items.filter(i=>i.status==='completed').length || 0);
       set('kpi-nodue', items.filter(i=>i.status==='no-due').length);
 
-      // Render cards
-      grid.innerHTML = items.map(i => `
-        <article class="assignment-card ${clsFor(i.status)}">
-          <div class="status-badge">${badgeFor(i.status)}</div>
-          <div class="assignment-title">${i.title}</div>
-          <div class="course-info">${i.course || ''}</div>
-          ${dateRow(i.due_at, i.status)}
-          ${i.url ? `<a class="assignment-link" href="${i.url}" target="_blank" rel="noopener">Launch Mission</a>` : ''}
-        </article>
-      `).join('');
-
+      // Render cards (button only if usable URL)
+      grid.innerHTML = items.map(i => {
+        const good = isUsableLink(i.url);
+        const btn = good ? `<a class="assignment-link" href="${i.url}" target="_blank" rel="noopener">View in Canvas</a>` : '';
+        return `
+          <article class="assignment-card ${clsFor(i.status)}">
+            <div class="status-badge">${badgeFor(i.status)}</div>
+            <div class="assignment-title">${i.title}</div>
+            <div class="course-info">${i.course || ''}</div>
+            ${dateRow(i.due_at)}
+            ${btn}
+          </article>`;
+      }).join('');
     } catch (e) {
       grid.innerHTML = '<p style="color:#fc8181; display: flex; align-items: center; gap: 10px;"><span class="loading"></span>assignments.json not found yet — the sync will create it shortly.</p>';
       console.error(e);

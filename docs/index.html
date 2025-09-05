@@ -11,130 +11,326 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 100px 100px;
       min-height: 100vh;
       padding: 20px;
-      color: #0f172a;
+      color: #e2e8f0;
     }
     .wrap { max-width: 1200px; margin: 0 auto; }
 
-    /* ===== Header (indigo gradient like your mock) ===== */
+    /* ===== Header (Star Wars inspired) ===== */
     .header {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-      border-radius: 20px;
+      background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #1a202c 100%);
+      border: 3px solid #4299e1;
+      color: #e2e8f0;
+      border-radius: 12px;
       padding: 24px 24px 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      box-shadow: 
+        0 0 20px rgba(66, 153, 225, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        0 12px 30px rgba(0,0,0,.4);
       margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
     }
-    h1 { font-size: clamp(22px, 3.2vw, 34px); font-weight: 900; letter-spacing: .2px; }
-    .subtitle { opacity: .95; margin-top: 6px; }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #4299e1, #63b3ed, #4299e1);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    h1 { 
+      font-size: clamp(22px, 3.2vw, 34px); 
+      font-weight: 900; 
+      letter-spacing: .2px; 
+      text-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
+    }
+    .subtitle { opacity: .9; margin-top: 6px; color: #cbd5e0; }
 
-    /* Legend chips */
-    .legend { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    /* Legend chips - LEGO brick style */
+    .legend { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
     .chip {
       display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px; border-radius:999px; font-weight:700; font-size:12px;
-      background: rgba(255,255,255,.14); color:#fff; border:1px solid rgba(255,255,255,.25);
+      padding:10px 14px; 
+      border-radius: 6px;
+      font-weight: 700; 
+      font-size: 12px;
+      background: #2d3748;
+      color: #e2e8f0;
+      border: 2px solid rgba(255,255,255,.2);
+      box-shadow: 
+        inset 0 2px 0 rgba(255,255,255,0.1),
+        inset 0 -2px 0 rgba(0,0,0,0.2),
+        0 4px 8px rgba(0,0,0,0.3);
+      position: relative;
     }
-    .chip .dot { width:8px; height:8px; border-radius:50%; }
-    .dot.warn{background:#e53e3e} .dot.good{background:#38a169}
-    .dot.cold{background:#4299e1} .dot.past{background:#9f7aea}
+    .chip::before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      box-shadow: 
+        -12px 0 rgba(255,255,255,0.1),
+        12px 0 rgba(255,255,255,0.1);
+    }
+    .chip .dot { width: 10px; height: 10px; border-radius: 2px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.3); }
+    .dot.warn{background: linear-gradient(45deg, #e53e3e, #fc8181)} 
+    .dot.good{background: linear-gradient(45deg, #38a169, #68d391)}
+    .dot.cold{background: linear-gradient(45deg, #4299e1, #63b3ed)} 
+    .dot.past{background: linear-gradient(45deg, #805ad5, #b794f6)}
 
     /* ===== Main container & KPIs ===== */
     .container {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      background: rgba(45, 55, 72, 0.95);
+      border: 2px solid #4a5568;
+      border-radius: 12px;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255,255,255,0.1);
       padding: 28px;
       backdrop-filter: blur(10px);
     }
     .summary {
-      background: linear-gradient(135deg, #2d3748, #4a5568);
-      color: white;
-      padding: 18px;
-      border-radius: 15px;
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #1a202c 100%);
+      border: 2px solid #4299e1;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
       margin-bottom: 22px;
-      text-align: left;
+      box-shadow: 
+        0 0 15px rgba(66, 153, 225, 0.2),
+        inset 0 1px 0 rgba(255,255,255,0.1);
     }
-    .summary-grid { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+    .summary-grid { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
     .stat {
-      background:#ffffff; border:1px solid #e2e8f0; border-radius:14px;
-      padding:14px 16px;
+      background: linear-gradient(135deg, #2d3748, #4a5568);
+      border: 2px solid #718096;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 
+        inset 0 2px 0 rgba(255,255,255,0.1),
+        inset 0 -2px 0 rgba(0,0,0,0.2),
+        0 4px 8px rgba(0,0,0,0.3);
+      position: relative;
     }
-    .num { font-size: 28px; font-weight: 900; color:#1f2937; }
-    .lbl { color:#475569; }
+    .stat::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      box-shadow: 
+        -10px 0 rgba(255,255,255,0.2),
+        10px 0 rgba(255,255,255,0.2);
+    }
+    .num { font-size: 28px; font-weight: 900; color: #e2e8f0; text-shadow: 0 0 5px rgba(66, 153, 225, 0.3); }
+    .lbl { color: #a0aec0; font-size: 14px; }
 
     /* ===== Assignment grid & cards ===== */
-    .assignments-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 16px; }
+    .assignments-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 18px; }
     .assignment-card {
-      position:relative; background:#fff; border-radius: 15px; padding: 18px 18px 20px;
-      border-left: 5px solid transparent;
-      box-shadow: 0 8px 20px rgba(0,0,0,.08);
+      position: relative;
+      background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+      border: 2px solid transparent;
+      border-radius: 8px;
+      padding: 20px 20px 22px;
+      box-shadow: 
+        inset 0 2px 0 rgba(255,255,255,0.1),
+        inset 0 -2px 0 rgba(0,0,0,0.2),
+        0 8px 20px rgba(0,0,0,.4);
       transition: transform .2s ease, box-shadow .2s ease;
+      overflow: hidden;
     }
-    .assignment-card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(0,0,0,.12); }
+    .assignment-card::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      box-shadow: 
+        -15px 0 rgba(255,255,255,0.1),
+        15px 0 rgba(255,255,255,0.1),
+        -30px 0 rgba(255,255,255,0.05),
+        30px 0 rgba(255,255,255,0.05);
+    }
+    .assignment-card:hover { 
+      transform: translateY(-4px); 
+      box-shadow: 
+        inset 0 2px 0 rgba(255,255,255,0.15),
+        inset 0 -2px 0 rgba(0,0,0,0.3),
+        0 12px 30px rgba(0,0,0,.5);
+    }
 
-    .assignment-title { font-size: 18px; font-weight: 800; color: #2d3748; line-height: 1.25; margin-bottom: 8px; }
-    .course-info { font-size: 0.95rem; color: #4a5568; margin-bottom: 10px; font-weight: 600; }
-    .due-date { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 14px; }
+    .assignment-title { 
+      font-size: 18px; 
+      font-weight: 800; 
+      color: #e2e8f0; 
+      line-height: 1.25; 
+      margin-bottom: 8px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    .course-info { 
+      font-size: 0.95rem; 
+      color: #a0aec0; 
+      margin-bottom: 12px; 
+      font-weight: 600; 
+    }
+    .due-date { 
+      display: flex; 
+      align-items: center; 
+      gap: 8px; 
+      font-weight: 700; 
+      margin-bottom: 16px;
+      color: #cbd5e0;
+    }
     .due-date-icon { width: 16px; height: 16px; }
 
     .status-badge {
-      position: absolute; top: 10px; right: 10px;
-      padding: 6px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; color: #fff;
+      position: absolute; 
+      top: 12px; 
+      right: 12px;
+      padding: 6px 12px; 
+      border-radius: 4px; 
+      font-size: 10px; 
+      font-weight: 800; 
+      color: #1a202c;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        0 2px 4px rgba(0,0,0,0.3);
     }
     .assignment-link {
       display: inline-block;
-      background: linear-gradient(135deg, #4299e1, #3182ce);
-      color: white; text-decoration: none;
-      padding: 10px 14px; border-radius: 10px; font-weight: 800;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      box-shadow: 0 6px 14px rgba(122,182,255,.35);
+      background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
+      color: #e2e8f0;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+      box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        inset 0 -1px 0 rgba(0,0,0,0.2),
+        0 4px 8px rgba(0,0,0,0.3);
+      border: 1px solid #4299e1;
     }
-    .assignment-link:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(122,182,255,.45); }
+    .assignment-link:hover { 
+      transform: translateY(-1px); 
+      box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        inset 0 -1px 0 rgba(0,0,0,0.3),
+        0 6px 12px rgba(0,0,0,0.4);
+      background: linear-gradient(135deg, #3182ce 0%, #4299e1 100%);
+    }
 
-    /* ===== Status themes (exactly like your static demo) ===== */
+    /* ===== Status themes (Star Wars inspired) ===== */
     .urgent{
-      border-left-color:#e53e3e;
-      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 20%, #ffffff 100%);
+      border-color: #e53e3e;
+      background: linear-gradient(135deg, #742a2a 0%, #9c4221 100%);
+      box-shadow: 
+        inset 0 2px 0 rgba(255,255,255,0.1),
+        inset 0 -2px 0 rgba(0,0,0,0.2),
+        0 0 15px rgba(229, 62, 62, 0.3),
+        0 8px 20px rgba(0,0,0,.4);
     }
-    .urgent .due-date { color:#e53e3e }
-    .urgent .status-badge { background:#e53e3e }
+    .urgent .due-date { color: #fc8181; text-shadow: 0 0 5px rgba(229, 62, 62, 0.5); }
+    .urgent .status-badge { background: linear-gradient(45deg, #e53e3e, #fc8181); }
 
     .completed{
-      border-left-color:#38a169;
-      background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 20%, #ffffff 100%);
+      border-color: #38a169;
+      background: linear-gradient(135deg, #276749 0%, #2f855a 100%);
+      box-shadow: 
+        inset 0 2px 0 rgba(255,255,255,0.1),
+        inset 0 -2px 0 rgba(0,0,0,0.2),
+        0 0 15px rgba(56, 161, 105, 0.3),
+        0 8px 20px rgba(0,0,0,.4);
     }
-    .completed .due-date { color:#38a169 }
-    .completed .status-badge { background:#38a169 }
+    .completed .due-date { color: #68d391; text-shadow: 0 0 5px rgba(56, 161, 105, 0.5); }
+    .completed .status-badge { background: linear-gradient(45deg, #38a169, #68d391); }
 
     .no-due{
-      border-left-color:#4299e1;
-      background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 20%, #ffffff 100%);
+      border-color: #4299e1;
+      background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+      box-shadow: 
+        inset 0 2px 0 rgba(255,255,255,0.1),
+        inset 0 -2px 0 rgba(0,0,0,0.2),
+        0 0 15px rgba(66, 153, 225, 0.3),
+        0 8px 20px rgba(0,0,0,.4);
     }
-    .no-due .due-date { color:#4299e1 }
-    .no-due .status-badge { background:#4299e1 }
+    .no-due .due-date { color: #63b3ed; text-shadow: 0 0 5px rgba(66, 153, 225, 0.5); }
+    .no-due .status-badge { background: linear-gradient(45deg, #4299e1, #63b3ed); }
 
     .past-due{
-      border-left-color:#9f7aea;
-      background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 20%, #ffffff 100%);
+      border-color: #805ad5;
+      background: linear-gradient(135deg, #553c9a 0%, #6b46c1 100%);
+      box-shadow: 
+        inset 0 2px 0 rgba(255,255,255,0.1),
+        inset 0 -2px 0 rgba(0,0,0,0.2),
+        0 0 15px rgba(128, 90, 213, 0.3),
+        0 8px 20px rgba(0,0,0,.4);
     }
-    .past-due .due-date { color:#9f7aea }
-    .past-due .status-badge { background:#9f7aea }
+    .past-due .due-date { color: #b794f6; text-shadow: 0 0 5px rgba(128, 90, 213, 0.5); }
+    .past-due .status-badge { background: linear-gradient(45deg, #805ad5, #b794f6); }
 
-    /* “Upcoming” style (for items with future due dates) */
     .todo{
-      border-left-color:#3182ce;
-      background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 20%, #ffffff 100%);
+      border-color: #3182ce;
+      background: linear-gradient(135deg, #2a4365 0%, #3182ce 100%);
+      box-shadow: 
+        inset 0 2px 0 rgba(255,255,255,0.1),
+        inset 0 -2px 0 rgba(0,0,0,0.2),
+        0 0 15px rgba(49, 130, 206, 0.3),
+        0 8px 20px rgba(0,0,0,.4);
     }
-    .todo .due-date { color:#3182ce }
-    .todo .status-badge { background:#3182ce }
+    .todo .due-date { color: #63b3ed; text-shadow: 0 0 5px rgba(49, 130, 206, 0.5); }
+    .todo .status-badge { background: linear-gradient(45deg, #3182ce, #63b3ed); }
 
     @media (max-width: 860px){
       .container{ padding: 20px; }
       .summary-grid{ grid-template-columns: 1fr 1fr; }
+      .chip::before { display: none; }
+    }
+
+    /* Loading animation */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #4a5568;
+      border-radius: 50%;
+      border-top-color: #4299e1;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -143,28 +339,28 @@
   <div class="wrap">
     <!-- Header -->
     <header class="header">
-      <h1>🎒 Christian — 6th Grade Assignments (Canvas)</h1>
-      <p class="subtitle">Live links to Canvas assignments. This page updates automatically from the Canvas calendar feed.</p>
+      <h1>🚀 Christian — Jedi Academy Assignments</h1>
+      <p class="subtitle">Mission Control for your Canvas assignments. May the Force be with your studies!</p>
       <div class="legend" aria-label="Legend">
-        <span class="chip"><span class="dot warn"></span> Due Today</span>
+        <span class="chip"><span class="dot warn"></span> Urgent Mission</span>
         <span class="chip"><span class="dot past"></span> Past Due</span>
         <span class="chip"><span class="dot cold"></span> No Due Date</span>
-        <span class="chip"><span class="dot good"></span> Completed</span>
+        <span class="chip"><span class="dot good"></span> Mission Complete</span>
       </div>
     </header>
 
     <!-- Main -->
     <main class="container">
       <!-- KPI Summary -->
-      <section class="summary" aria-label="Summary">
+      <section class="summary" aria-label="Mission Summary">
         <div class="summary-grid">
           <div class="stat">
             <div class="num" id="kpi-total">—</div>
-            <div class="lbl">Total Assignments</div>
+            <div class="lbl">Total Missions</div>
           </div>
           <div class="stat">
             <div class="num" id="kpi-today">—</div>
-            <div class="lbl">Due Today</div>
+            <div class="lbl">Urgent Today</div>
           </div>
           <div class="stat">
             <div class="num" id="kpi-complete">—</div>
@@ -179,7 +375,10 @@
 
       <!-- Cards go here -->
       <section class="assignments-grid" id="grid">
-        <p style="color:#475569">Loading assignments…</p>
+        <p style="color:#a0aec0; display: flex; align-items: center; gap: 10px;">
+          <span class="loading"></span>
+          Loading your missions from the Academy...
+        </p>
       </section>
     </main>
   </div>
@@ -194,7 +393,7 @@
       s==='urgent'  ? 'Due Today' :
       s==='past-due'? 'Past Due' :
       s==='no-due'  ? 'No Due Date' :
-      s==='completed' ? 'Completed' : 'Upcoming'
+      s==='completed' ? 'Complete' : 'Upcoming'
     );
 
     const clsFor = s => (
@@ -220,7 +419,7 @@
       // KPIs
       set('kpi-total', items.length);
       set('kpi-today', items.filter(i=>i.status==='urgent').length);
-      set('kpi-complete', items.filter(i=>i.status==='completed').length || 0); // ICS usually doesn't provide this
+      set('kpi-complete', items.filter(i=>i.status==='completed').length || 0);
       set('kpi-nodue', items.filter(i=>i.status==='no-due').length);
 
       // Render cards
@@ -230,12 +429,12 @@
           <div class="assignment-title">${i.title}</div>
           <div class="course-info">${i.course || ''}</div>
           ${dateRow(i.due_at, i.status)}
-          ${i.url ? `<a class="assignment-link" href="${i.url}" target="_blank" rel="noopener">View Assignment</a>` : ''}
+          ${i.url ? `<a class="assignment-link" href="${i.url}" target="_blank" rel="noopener">Launch Mission</a>` : ''}
         </article>
       `).join('');
 
     } catch (e) {
-      grid.innerHTML = '<p style="color:#b91c1c">assignments.json not found yet — the sync will create it shortly.</p>';
+      grid.innerHTML = '<p style="color:#fc8181; display: flex; align-items: center; gap: 10px;"><span class="loading"></span>assignments.json not found yet — the sync will create it shortly.</p>';
       console.error(e);
     }
   })();

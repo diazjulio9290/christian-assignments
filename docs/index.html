@@ -339,7 +339,7 @@
   <div class="wrap">
     <!-- Header -->
     <header class="header">
-      <h1>🚀 Christian — Jedi Academy Assignments</h1>
+      <h1>🚀 Christian — Jedi Summa Assignments</h1>
       <p class="subtitle">Mission Control for your Canvas assignments. May the Force be with your studies!</p>
       <div class="legend" aria-label="Legend">
         <span class="chip"><span class="dot warn"></span> Urgent Mission</span>
@@ -352,7 +352,7 @@
     <!-- Main -->
     <main class="container">
       <!-- KPI Summary -->
-      <section class="summary" aria-label="Mission Summary">
+     <section class="summary" aria-label="Mission Summary">
   <div class="summary-grid">
     <div class="stat">
       <div class="num" id="kpi-total">—</div>
@@ -367,11 +367,12 @@
       <div class="lbl">Past Due</div>
     </div>
     <div class="stat">
-      <div class="num" id="kpi-nodue">—</div>
-      <div class="lbl">No Due Date</div>
+      <div class="num" id="kpi-upcoming">—</div>
+      <div class="lbl">Upcoming</div>
     </div>
   </div>
 </section>
+
 
 
       <!-- Cards go here -->
@@ -384,7 +385,7 @@
     </main>
   </div>
 
-  <script>
+ <script>
 (async () => {
   const grid = document.getElementById('grid');
   const set = (id, v) => document.getElementById(id).textContent = v;
@@ -400,6 +401,11 @@
     s==='urgent' || s==='past-due' || s==='no-due' || s==='completed'
       ? s : 'todo'
   );
+
+  // Helpers for "Upcoming" (strictly future, not today)
+  const startToday = new Date(); startToday.setHours(0,0,0,0);
+  const startTomorrow = new Date(startToday); startTomorrow.setDate(startTomorrow.getDate() + 1);
+  const isUpcoming = (i) => i.due_at && new Date(i.due_at) >= startTomorrow;
 
   const dateRow = (iso) => {
     const txt = iso ? new Date(iso).toLocaleString() : 'No Due Date';
@@ -417,11 +423,11 @@
     if (!res.ok) throw new Error('No assignments.json yet');
     const items = await res.json();
 
-    // KPIs (Past Due replaces Completed)
+    // KPIs
     set('kpi-total', items.length);
-    set('kpi-today', items.filter(i=>i.status==='urgent').length);
-    set('kpi-pastdue', items.filter(i=>i.status==='past-due').length);
-    set('kpi-nodue', items.filter(i=>i.status==='no-due').length);
+    set('kpi-today', items.filter(i => i.status === 'urgent').length);
+    set('kpi-pastdue', items.filter(i => i.status === 'past-due').length);
+    set('kpi-upcoming', items.filter(isUpcoming).length);
 
     // Cards
     grid.innerHTML = items.map(i => `
@@ -438,6 +444,7 @@
   }
 })();
 </script>
+ 
 
 </body>
 </html>

@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 20
       - run: npm init -y
-      - run: npm install ical
+      - run: npm install node-ical
       - name: Build assignments.json
         env:
           ICS_URL: ${{ secrets.CANVAS_ICS_URL }}

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Assignments</title>
+  <style>
+    :root{--bg:#0b0f14;--card:#161e2a;--muted:#9fb0c3;--accent:#7ee787}
+    body{margin:0;background:var(--bg);color:#e6edf3;font:16px/1.5 system-ui}
+    .wrap{max-width:980px;margin:0 auto;padding:28px}
+    h1{margin:0 0 8px}
+    p{color:var(--muted);margin:0 0 18px}
+    .card{background:var(--card);border:1px solid #243043;border-radius:14px;padding:18px}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+    input,select{background:#0e1622;color:#e6edf3;border:1px solid #243043;border-radius:10px;padding:10px 12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{padding:10px;border-bottom:1px solid #243043;text-align:left}
+    th{color:var(--muted);font-weight:600}
+    .tag{padding:4px 8px;border-radius:999px;border:1px solid #2b3a4e}
+    .tag.ok{background:#0f2616;border-color:#2c593a;color:var(--accent)}
+    .tag.todo{background:#1a1421;border-color:#4a3c5a;color:#caa6ff}
+    .tag.late{background:#2a1414;border-color:#6a3a3a;color:#ff6b6b}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Assignments</h1>
+    <p>Quick view to check homework/tasks. Filter by course or status.</p>
+
+    <div class="card">
+      <div class="row">
+        <input id="q" placeholder="Search title…" />
+        <select id="course">
+          <option value="">All courses</option>
+        </select>
+        <select id="status">
+          <option value="">All status</option>
+          <option value="todo">To-do</option>
+          <option value="ok">Done</option>
+          <option value="late">Late</option>
+        </select>
+      </div>
+
+      <table id="tbl">
+        <thead>
+          <tr><th>Title</th><th>Course</th><th>Due</th><th>Status</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // 🔧 Edit this list as you like (or load from a JSON file later)
+    const data = [
+      { title: "Algebra – Practice Set 3", course: "Math", due: "2025-09-10", status: "todo" },
+      { title: "Reading Log – Ch. 4", course: "English", due: "2025-09-08", status: "ok" },
+      { title: "Science Lab Report", course: "Science", due: "2025-09-07", status: "late" },
+      { title: "History – Map Quiz", course: "History", due: "2025-09-12", status: "todo" }
+    ];
+
+    const $q = document.getElementById('q');
+    const $course = document.getElementById('course');
+    const $status = document.getElementById('status');
+    const $tbody = document.querySelector('#tbl tbody');
+
+    // build course list
+    [...new Set(data.map(d => d.course))].sort().forEach(c => {
+      const o = document.createElement('option'); o.value = c; o.textContent = c; $course.appendChild(o);
+    });
+
+    function tag(status){
+      const map = { ok:"Done", todo:"To-do", late:"Late" };
+      return `<span class="tag ${status}">${map[status]||status}</span>`;
+    }
+    function render(){
+      const q = $q.value.toLowerCase(), c = $course.value, s = $status.value;
+      const rows = data
+        .filter(d => (!c || d.course===c) && (!s || d.status===s) &&
+                     (d.title.toLowerCase().includes(q)))
+        .sort((a,b) => a.due.localeCompare(b.due));
+      $tbody.innerHTML = rows.map(d => `
+        <tr>
+          <td>${d.title}</td>
+          <td>${d.course}</td>
+          <td>${d.due}</td>
+          <td>${tag(d.status)}</td>
+        </tr>`).join('');
+    }
+    [$q,$course,$status].forEach(el => el.addEventListener('input', render));
+    render();
+  </script>
+</body>
+</html>

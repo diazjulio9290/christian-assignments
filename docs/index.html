@@ -7,332 +7,248 @@
   <meta name="description" content="Christian — 6th Grade assignments with direct Canvas links. Auto-updated from Canvas calendar feed." />
 
   <style>
-    /* ===== Base layout & type ===== */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
-      background-image: 
-        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 100px 100px;
-      min-height: 100vh;
-      padding: 20px;
-      color: #e2e8f0;
-    }
-    .wrap { max-width: 1200px; margin: 0 auto; }
+  /* ===== Base layout & type ===== */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 100px 100px;
+    min-height: 100vh;
+    padding: 20px;
+    color: #e2e8f0;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; }
 
-    /* ===== Header (Star Wars inspired) ===== */
-    .header {
-      background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #1a202c 100%);
-      border: 3px solid #4299e1;
-      color: #e2e8f0;
-      border-radius: 12px;
-      padding: 24px 24px 18px;
-      box-shadow: 
-        0 0 20px rgba(66, 153, 225, 0.3),
-        inset 0 1px 0 rgba(255,255,255,0.1),
-        0 12px 30px rgba(0,0,0,.4);
-      margin-bottom: 18px;
-      position: relative;
-      overflow: hidden;
-    }
-    .header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #4299e1, #63b3ed, #4299e1);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
-    h1 { 
-      font-size: clamp(22px, 3.2vw, 34px); 
-      font-weight: 900; 
-      letter-spacing: .2px; 
-      text-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
-    }
-    .subtitle { opacity: .9; margin-top: 6px; color: #cbd5e0; }
+  /* ===== Header ===== */
+  .header {
+    background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #1a202c 100%);
+    border: 3px solid #4299e1;
+    color: #e2e8f0;
+    border-radius: 12px;
+    padding: 24px 24px 18px;
+    box-shadow:
+      0 0 20px rgba(66, 153, 225, 0.3),
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 12px 30px rgba(0,0,0,.4);
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4299e1, #63b3ed, #4299e1);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
 
-    /* Legend chips - LEGO brick style */
-    .legend { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
-    .chip {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 14px; 
-      border-radius: 6px;
-      font-weight: 700; 
-      font-size: 12px;
-      background: #2d3748;
-      color: #e2e8f0;
-      border: 2px solid rgba(255,255,255,.2);
-      box-shadow: 
-        inset 0 2px 0 rgba(255,255,255,0.1),
-        inset 0 -2px 0 rgba(0,0,0,0.2),
-        0 4px 8px rgba(0,0,0,0.3);
-      position: relative;
-    }
-    .chip::before {
-      content: '';
-      position: absolute;
-      top: 3px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 8px;
-      height: 8px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      box-shadow: 
-        -12px 0 rgba(255,255,255,0.1),
-        12px 0 rgba(255,255,255,0.1);
-    }
-    .chip .dot { width: 10px; height: 10px; border-radius: 2px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.3); }
-    .dot.warn{background: linear-gradient(45deg, #e53e3e, #fc8181)} 
-    .dot.good{background: linear-gradient(45deg, #38a169, #68d391)}
-    .dot.cold{background: linear-gradient(45deg, #4299e1, #63b3ed)} 
-    .dot.past{background: linear-gradient(45deg, #805ad5, #b794f6)}
+  h1{
+    font-size: clamp(22px, 3.2vw, 34px);
+    font-weight: 900;
+    letter-spacing: .2px;
+    text-shadow: 0 0 10px rgba(66,153,225,.5);
+  }
+  .subtitle{opacity:.9;margin-top:6px;color:#cbd5e0}
 
-    /* ===== Main container & KPIs ===== */
-    .container {
-      background: rgba(45, 55, 72, 0.95);
-      border: 2px solid #4a5568;
-      border-radius: 12px;
-      box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255,255,255,0.1);
-      padding: 28px;
-      backdrop-filter: blur(10px);
-    }
-    .summary {
-      background: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #1a202c 100%);
-      border: 2px solid #4299e1;
-      color: #e2e8f0;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 22px;
-      box-shadow: 
-        0 0 15px rgba(66, 153, 225, 0.2),
-        inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .summary-grid { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
-    .stat {
-      background: linear-gradient(135deg, #2d3748, #4a5568);
-      border: 2px solid #718096;
-      border-radius: 8px;
-      padding: 16px;
-      box-shadow: 
-        inset 0 2px 0 rgba(255,255,255,0.1),
-        inset 0 -2px 0 rgba(0,0,0,0.2),
-        0 4px 8px rgba(0,0,0,0.3);
-      position: relative;
-    }
-    .stat::before {
-      content: '';
-      position: absolute;
-      top: 4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 6px;
-      height: 6px;
-      background: rgba(255,255,255,0.3);
-      border-radius: 50%;
-      box-shadow: 
-        -10px 0 rgba(255,255,255,0.2),
-        10px 0 rgba(255,255,255,0.2);
-    }
-    .num { font-size: 28px; font-weight: 900; color: #e2e8f0; text-shadow: 0 0 5px rgba(66, 153, 225, 0.3); }
-    .lbl { color: #a0aec0; font-size: 14px; }
+  /* ===== Legend chips ===== */
+  .legend { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
+  .chip{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 14px;
+    border-radius:6px; font-weight:700; font-size:12px;
+    background:#2d3748; color:#e2e8f0; border:2px solid rgba(255,255,255,.2);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.1),
+      inset 0 -2px 0 rgba(0,0,0,.2),
+      0 4px 8px rgba(0,0,0,.3);
+    position:relative;
+  }
+  .chip::before{
+    content:'';
+    position:absolute; top:3px; left:50%; transform:translateX(-50%);
+    width:8px; height:8px; background:rgba(255,255,255,.2); border-radius:50%;
+    box-shadow:-12px 0 rgba(255,255,255,.1), 12px 0 rgba(255,255,255,.1);
+  }
+  .chip .dot{width:10px;height:10px;border-radius:2px;box-shadow:inset 0 1px 2px rgba(0,0,0,.3);}
+  .dot.warn{background:linear-gradient(45deg,#e53e3e,#fc8181)}
+  .dot.good{background:linear-gradient(45deg,#38a169,#68d391)}
+  .dot.cold{background:linear-gradient(45deg,#4299e1,#63b3ed)}
+  .dot.past{background:linear-gradient(45deg,#805ad5,#b794f6)}
 
-    /* ===== Assignment grid & cards ===== */
-    .assignments-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 18px; }
-    .assignment-card {
-      position: relative;
-      background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-      border: 2px solid transparent;
-      border-radius: 8px;
-      padding: 20px 20px 22px;
-      box-shadow: 
-        inset 0 2px 0 rgba(255,255,255,0.1),
-        inset 0 -2px 0 rgba(0,0,0,0.2),
-        0 8px 20px rgba(0,0,0,.4);
-      transition: transform .2s ease, box-shadow .2s ease;
-      overflow: hidden;
-    }
-    .assignment-card::before {
-      content: '';
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 8px;
-      height: 8px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      box-shadow: 
-        -15px 0 rgba(255,255,255,0.1),
-        15px 0 rgba(255,255,255,0.1),
-        -30px 0 rgba(255,255,255,0.05),
-        30px 0 rgba(255,255,255,0.05);
-    }
-    .assignment-card:hover { 
-      transform: translateY(-4px); 
-      box-shadow: 
-        inset 0 2px 0 rgba(255,255,255,0.15),
-        inset 0 -2px 0 rgba(0,0,0,0.3),
-        0 12px 30px rgba(0,0,0,.5);
-    }
+  /* ===== Main container & KPIs ===== */
+  .container{
+    background: rgba(45,55,72,.95);
+    border: 2px solid #4a5568;
+    border-radius: 12px;
+    box-shadow:
+      0 20px 40px rgba(0,0,0,.4),
+      inset 0 1px 0 rgba(255,255,255,.1);
+    padding: 28px;
+    backdrop-filter: blur(10px);
+  }
+  .summary{
+    background: linear-gradient(135deg,#1a202c 0%,#2d3748 50%,#1a202c 100%);
+    border: 2px solid #4299e1;
+    color: #e2e8f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 22px;
+    box-shadow:
+      0 0 15px rgba(66,153,225,.2),
+      inset 0 1px 0 rgba(255,255,255,.1);
+  }
+  .summary-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+  .stat{
+    background: linear-gradient(135deg,#2d3748,#4a5568);
+    border: 2px solid #718096;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.1),
+      inset 0 -2px 0 rgba(0,0,0,.2),
+      0 4px 8px rgba(0,0,0,.3);
+    position:relative;
+  }
+  .stat::before{
+    content:''; position:absolute; top:4px; left:50%; transform:translateX(-50%);
+    width:6px; height:6px; background:rgba(255,255,255,.3); border-radius:50%;
+    box-shadow:-10px 0 rgba(255,255,255,.2), 10px 0 rgba(255,255,255,.2);
+  }
+  .num{ font-size:28px; font-weight:900; color:#e2e8f0; text-shadow:0 0 5px rgba(66,153,225,.3); }
+  .lbl{ color:#a0aec0; font-size:14px; }
 
-    .assignment-title { 
-      font-size: 18px; 
-      font-weight: 800; 
-      color: #e2e8f0; 
-      line-height: 1.25; 
-      margin-bottom: 8px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
-    .course-info { 
-      font-size: 0.95rem; 
-      color: #a0aec0; 
-      margin-bottom: 12px; 
-      font-weight: 600; 
-    }
-    .due-date { 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-      font-weight: 700; 
-      margin-bottom: 16px;
-      color: #cbd5e0;
-    }
-    .due-date-icon { width: 16px; height: 16px; }
+  /* ===== Assignment grid & cards ===== */
+  .assignments-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; }
+  .assignment-card{
+    position:relative;
+    background: linear-gradient(135deg,#2d3748 0%,#4a5568 100%);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 20px 20px 60px; /* reserve space for bottom-right badge */
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.1),
+      inset 0 -2px 0 rgba(0,0,0,.2),
+      0 8px 20px rgba(0,0,0,.4);
+    transition: transform .2s ease, box-shadow .2s ease;
+    overflow:hidden;
+  }
+  .assignment-card::before{
+    content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%);
+    width:8px; height:8px; background:rgba(255,255,255,.2); border-radius:50%;
+    box-shadow:-15px 0 rgba(255,255,255,.1), 15px 0 rgba(255,255,255,.1),
+               -30px 0 rgba(255,255,255,.05), 30px 0 rgba(255,255,255,.05);
+  }
+  .assignment-card:hover{
+    transform:translateY(-4px);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.15),
+      inset 0 -2px 0 rgba(0,0,0,.3),
+      0 12px 30px rgba(0,0,0,.5);
+  }
 
-    .status-badge {
-      position: absolute; 
-      top: 12px; 
-      right: 12px;
-      padding: 6px 12px; 
-      border-radius: 4px; 
-      font-size: 10px; 
-      font-weight: 800; 
-      color: #1a202c;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      box-shadow: 
-        inset 0 1px 0 rgba(255,255,255,0.2),
-        0 2px 4px rgba(0,0,0,0.3);
-    }
-    .assignment-link {
-      display: inline-block;
-      background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
-      color: #e2e8f0;
-      text-decoration: none;
-      padding: 12px 16px;
-      border-radius: 6px;
-      font-weight: 800;
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      transition: all 0.2s ease;
-      box-shadow: 
-        inset 0 1px 0 rgba(255,255,255,0.1),
-        inset 0 -1px 0 rgba(0,0,0,0.2),
-        0 4px 8px rgba(0,0,0,0.3);
-      border: 1px solid #4299e1;
-    }
-    .assignment-link:hover { 
-      transform: translateY(-1px); 
-      box-shadow: 
-        inset 0 1px 0 rgba(255,255,255,0.15),
-        inset 0 -1px 0 rgba(0,0,0,0.3),
-        0 6px 12px rgba(0,0,0,0.4);
-      background: linear-gradient(135deg, #3182ce 0%, #4299e1 100%);
-    }
+  .assignment-title{
+    font-size:18px; font-weight:800; color:#e2e8f0; line-height:1.25;
+    margin-bottom:8px; text-shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+  .course-info{ font-size:.95rem; color:#a0aec0; margin-bottom:12px; font-weight:600; }
+  .due-date{ display:flex; align-items:center; gap:8px; font-weight:700; margin-bottom:16px; color:#cbd5e0; }
+  .due-date-icon{ width:16px; height:16px; }
 
-    /* ===== Status themes (Star Wars inspired) ===== */
-    .urgent{
-      border-color: #e53e3e;
-      background: linear-gradient(135deg, #742a2a 0%, #9c4221 100%);
-      box-shadow: 
-        inset 0 2px 0 rgba(255,255,255,0.1),
-        inset 0 -2px 0 rgba(0,0,0,0.2),
-        0 0 15px rgba(229, 62, 62, 0.3),
-        0 8px 20px rgba(0,0,0,.4);
-    }
-    .urgent .due-date { color: #fc8181; text-shadow: 0 0 5px rgba(229, 62, 62, 0.5); }
-    .urgent .status-badge { background: linear-gradient(45deg, #e53e3e, #fc8181); }
+  /* ===== Status badge — bottom-right ===== */
+  .status-badge{
+    position:absolute; bottom:12px; right:12px;
+    padding:6px 12px; border-radius:4px;
+    font-size:10px; font-weight:800; color:#1a202c;
+    text-transform:uppercase; letter-spacing:.5px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 2px 4px rgba(0,0,0,.3);
+  }
 
-    .completed{
-      border-color: #38a169;
-      background: linear-gradient(135deg, #276749 0%, #2f855a 100%);
-      box-shadow: 
-        inset 0 2px 0 rgba(255,255,255,0.1),
-        inset 0 -2px 0 rgba(0,0,0,0.2),
-        0 0 15px rgba(56, 161, 105, 0.3),
-        0 8px 20px rgba(0,0,0,.4);
-    }
-    .completed .due-date { color: #68d391; text-shadow: 0 0 5px rgba(56, 161, 105, 0.5); }
-    .completed .status-badge { background: linear-gradient(45deg, #38a169, #68d391); }
+  /* ===== Status themes ===== */
+  .urgent{
+    border-color:#e53e3e;
+    background: linear-gradient(135deg,#742a2a 0%,#9c4221 100%);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.1),
+      inset 0 -2px 0 rgba(0,0,0,.2),
+      0 0 15px rgba(229,62,62,.3),
+      0 8px 20px rgba(0,0,0,.4);
+  }
+  .urgent .due-date{ color:#fc8181; text-shadow:0 0 5px rgba(229,62,62,.5); }
+  .urgent .status-badge{ background:linear-gradient(45deg,#e53e3e,#fc8181); }
 
-    .no-due{
-      border-color: #4299e1;
-      background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
-      box-shadow: 
-        inset 0 2px 0 rgba(255,255,255,0.1),
-        inset 0 -2px 0 rgba(0,0,0,0.2),
-        0 0 15px rgba(66, 153, 225, 0.3),
-        0 8px 20px rgba(0,0,0,.4);
-    }
-    .no-due .due-date { color: #63b3ed; text-shadow: 0 0 5px rgba(66, 153, 225, 0.5); }
-    .no-due .status-badge { background: linear-gradient(45deg, #4299e1, #63b3ed); }
+  .completed{
+    border-color:#38a169;
+    background: linear-gradient(135deg,#276749 0%,#2f855a 100%);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.1),
+      inset 0 -2px 0 rgba(0,0,0,.2),
+      0 0 15px rgba(56,161,105,.3),
+      0 8px 20px rgba(0,0,0,.4);
+  }
+  .completed .due-date{ color:#68d391; text-shadow:0 0 5px rgba(56,161,105,.5); }
+  .completed .status-badge{ background:linear-gradient(45deg,#38a169,#68d391); }
 
-    .past-due{
-      border-color: #805ad5;
-      background: linear-gradient(135deg, #553c9a 0%, #6b46c1 100%);
-      box-shadow: 
-        inset 0 2px 0 rgba(255,255,255,0.1),
-        inset 0 -2px 0 rgba(0,0,0,0.2),
-        0 0 15px rgba(128, 90, 213, 0.3),
-        0 8px 20px rgba(0,0,0,.4);
-    }
-    .past-due .due-date { color: #b794f6; text-shadow: 0 0 5px rgba(128, 90, 213, 0.5); }
-    .past-due .status-badge { background: linear-gradient(45deg, #805ad5, #b794f6); }
+  .no-due{
+    border-color:#4299e1;
+    background: linear-gradient(135deg,#2c5282 0%,#3182ce 100%);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.1),
+      inset 0 -2px 0 rgba(0,0,0,.2),
+      0 0 15px rgba(66,153,225,.3),
+      0 8px 20px rgba(0,0,0,.4);
+  }
+  .no-due .due-date{ color:#63b3ed; text-shadow:0 0 5px rgba(66,153,225,.5); }
+  .no-due .status-badge{ background:linear-gradient(45deg,#4299e1,#63b3ed); }
 
-    .todo{
-      border-color: #3182ce;
-      background: linear-gradient(135deg, #2a4365 0%, #3182ce 100%);
-      box-shadow: 
-        inset 0 2px 0 rgba(255,255,255,0.1),
-        inset 0 -2px 0 rgba(0,0,0,0.2),
-        0 0 15px rgba(49, 130, 206, 0.3),
-        0 8px 20px rgba(0,0,0,.4);
-    }
-    .todo .due-date { color: #63b3ed; text-shadow: 0 0 5px rgba(49, 130, 206, 0.5); }
-    .todo .status-badge { background: linear-gradient(45deg, #3182ce, #63b3ed); }
+  .past-due{
+    border-color:#805ad5;
+    background: linear-gradient(135deg,#553c9a 0%,#6b46c1 100%);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.1),
+      inset 0 -2px 0 rgba(0,0,0,.2),
+      0 0 15px rgba(128,90,213,.3),
+      0 8px 20px rgba(0,0,0,.4);
+  }
+  .past-due .due-date{ color:#b794f6; text-shadow:0 0 5px rgba(128,90,213,.5); }
+  .past-due .status-badge{ background:linear-gradient(45deg,#805ad5,#b794f6); }
 
-    @media (max-width: 860px){
-      .container{ padding: 20px; }
-      .summary-grid{ grid-template-columns: 1fr 1fr; }
-      .chip::before { display: none; }
-    }
+  /* “Upcoming” (future due dates) */
+  .todo{
+    border-color:#3182ce;
+    background: linear-gradient(135deg,#2a4365 0%,#3182ce 100%);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.1),
+      inset 0 -2px 0 rgba(0,0,0,.2),
+      0 0 15px rgba(49,130,206,.3),
+      0 8px 20px rgba(0,0,0,.4);
+  }
+  .todo .due-date{ color:#63b3ed; text-shadow:0 0 5px rgba(49,130,206,.5); }
+  .todo .status-badge{ background:linear-gradient(45deg,#3182ce,#63b3ed); }
 
-    /* Loading animation */
-    .loading {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 2px solid #4a5568;
-      border-radius: 50%;
-      border-top-color: #4299e1;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
+  /* Small screens: give a bit more bottom room for the badge */
+  @media (max-width: 860px){
+    .container{ padding:20px; }
+    .summary-grid{ grid-template-columns:1fr 1fr; }
+    .chip::before{ display:none; }
+  }
+  @media (max-width: 480px){
+    .assignment-card{ padding-bottom:72px; }
+  }
+
+  /* Loading animation */
+  .loading{
+    display:inline-block; width:20px; height:20px;
+    border:2px solid #4a5568; border-radius:50%;
+    border-top-color:#4299e1; animation:spin 1s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+</style>
+
 </head>
 
 <body>

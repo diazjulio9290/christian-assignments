@@ -57,7 +57,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=09&year=2025#assignment_2255674"
     },
     "due_at": "2025-09-05T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Letter to Mr. Nagelmann [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
@@ -69,7 +69,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=09&year=2025#assignment_2242506"
     },
     "due_at": "2025-09-05T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Essential Question Quick Write [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",

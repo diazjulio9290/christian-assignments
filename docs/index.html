@@ -19,7 +19,7 @@
       min-height: 100vh;
       padding: 20px;
       color: #e2e8f0;
-      scroll-behavior: smooth; /* enable smooth anchor scroll as fallback */
+      scroll-behavior: smooth;
     }
     .wrap { max-width: 1200px; margin: 0 auto; }
 
@@ -54,31 +54,6 @@
     }
     .subtitle{opacity:.9;margin-top:6px;color:#cbd5e0}
 
-    /* ===== Legend chips ===== */
-    .legend { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 14px;
-      border-radius:6px; font-weight:700; font-size:12px;
-      background:#2d3748; color:#e2e8f0; border:2px solid rgba(255,255,255,.2);
-      box-shadow:
-        inset 0 2px 0 rgba(255,255,255,.1),
-        inset 0 -2px 0 rgba(0,0,0,.2),
-        0 4px 8px rgba(0,0,0,.3);
-      position:relative;
-    }
-    .chip::before{
-      content:''; position:absolute; top:3px; left:50%; transform:translateX(-50%);
-      width:8px; height:8px; background:rgba(255,255,255,.2); border-radius:50%;
-      box-shadow:-12px 0 rgba(255,255,255,.1), 12px 0 rgba(255,255,255,.1);
-    }
-    .chip .dot{width:10px;height:10px;border-radius:2px;box-shadow:inset 0 1px 2px rgba(0,0,0,.3);}
-    .dot.warn{background:linear-gradient(45deg,#e53e3e,#fc8181)}
-    .dot.cold{background:linear-gradient(45deg,#4299e1,#63b3ed)}
-    .dot.past{background:linear-gradient(45deg,#805ad5,#b794f6)}
-    .dot.soon{background:linear-gradient(45deg,#dd6b20,#f6ad55)} /* tomorrow */
-    .dot.up{background:linear-gradient(45deg,#3182ce,#63b3ed)}  /* upcoming */
-
     /* ===== Main container & KPIs ===== */
     .container{
       background: rgba(45,55,72,.95);
@@ -94,34 +69,32 @@
       background: linear-gradient(135deg,#1a202c 0%,#2d3748 50%,#1a202c 100%);
       border: 2px solid #4299e1;
       color: #e2e8f0;
-      padding: 20px;
+      padding: 16px 16px 8px;
       border-radius: 8px;
       margin-bottom: 22px;
       box-shadow:
         0 0 15px rgba(66,153,225,.2),
         inset 0 1px 0 rgba(255,255,255,.1);
     }
-    /* auto-fit so 5 tiles wrap nicely on small screens */
-    .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:16px; }
+    /* auto-fit so tiles wrap nicely */
+    .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:12px; }
     .stat{
       background: linear-gradient(135deg,#2d3748,#4a5568);
       border: 2px solid #718096;
-      border-radius: 8px;
-      padding: 16px;
+      border-radius: 10px;
+      padding: 14px 14px 12px;
       box-shadow:
         inset 0 2px 0 rgba(255,255,255,.1),
         inset 0 -2px 0 rgba(0,0,0,.2),
         0 4px 8px rgba(0,0,0,.3);
       position:relative;
       transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .stat::before{
-      content:''; position:absolute; top:4px; left:50%; transform:translateX(-50%);
-      width:6px; height:6px; background:rgba(255,255,255,.3); border-radius:50%;
-      box-shadow:-10px 0 rgba(255,255,255,.2), 10px 0 rgba(255,255,255,.2);
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 6px;
     }
     .num{ font-size:28px; font-weight:900; color:#e2e8f0; text-shadow:0 0 5px rgba(66,153,225,.3); }
-    .lbl{ color:#a0aec0; font-size:14px; }
+    .lbl{ color:#a0aec0; font-size:14px; display:flex; align-items:center; gap:8px; }
     /* clickable KPI tiles */
     .clickable { cursor: pointer; }
     .clickable:focus, .clickable:hover {
@@ -129,6 +102,17 @@
       box-shadow: 0 6px 14px rgba(0,0,0,.35), inset 0 2px 0 rgba(255,255,255,.14);
       outline: none;
     }
+    /* color swatches inside KPI labels */
+    .swatch{
+      width:12px; height:12px; border-radius:3px;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.18);
+      flex: 0 0 12px;
+    }
+    .sw-total{ background: linear-gradient(45deg,#718096,#a0aec0); }
+    .sw-urgent{ background: linear-gradient(45deg,#e53e3e,#fc8181); }
+    .sw-tomorrow{ background: linear-gradient(45deg,#dd6b20,#f6ad55); }
+    .sw-past{ background: linear-gradient(45deg,#805ad5,#b794f6); }
+    .sw-up{ background: linear-gradient(45deg,#3182ce,#63b3ed); }
 
     /* ===== Assignment grid & cards ===== */
     .assignments-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; }
@@ -161,7 +145,7 @@
 
     .assignment-title{
       font-size:18px; font-weight:800; color:#e2e8f0; line-height:1.25;
-      margin-bottom:8px; text-shadow:0 1px 2px rgba(0,0,0,.3);
+      margin-bottom:8px; text-shadow: 0 1px 2px rgba(0,0,0,.3);
     }
     .course-info{ font-size:.95rem; color:#a0aec0; margin-bottom:12px; font-weight:600; }
     .due-date{ display:flex; align-items:center; gap:8px; font-weight:700; margin-bottom:16px; color:#cbd5e0; }
@@ -250,7 +234,6 @@
     /* Small screens */
     @media (max-width: 860px){
       .container{ padding:20px; }
-      .chip::before{ display:none; }
     }
     @media (max-width: 480px){
       .assignment-card{ padding-bottom:72px; }
@@ -280,38 +263,33 @@
     <header class="header">
       <h1>🚀 Christian — Jedi Academy Assignments</h1>
       <p class="subtitle">Mission Control for your Canvas assignments. May the Force be with your studies!</p>
-      <div class="legend" aria-label="Legend">
-        <span class="chip"><span class="dot warn"></span> Urgent Today</span>
-        <span class="chip"><span class="dot soon"></span> Due Tomorrow</span>
-        <span class="chip"><span class="dot past"></span> Past Due</span>
-        <span class="chip"><span class="dot up"></span> Upcoming</span>
-      </div>
+      <!-- Legend chips removed per your request -->
     </header>
 
     <!-- Main -->
     <main class="container">
-      <!-- KPI Summary -->
+      <!-- KPI Summary (only clickable tiles with color squares) -->
       <section class="summary" aria-label="Mission Summary">
         <div class="summary-grid">
-          <div class="stat" id="tile-total" aria-label="Jump to top" tabindex="0">
+          <div class="stat clickable" id="tile-total" aria-label="Jump to top" tabindex="0">
             <div class="num" id="kpi-total">—</div>
-            <div class="lbl">Total Missions</div>
+            <div class="lbl"><span class="swatch sw-total" aria-hidden="true"></span> Total Missions</div>
           </div>
           <div class="stat clickable" id="tile-today" aria-label="Jump to first Due Today" tabindex="0">
             <div class="num" id="kpi-today">—</div>
-            <div class="lbl">Urgent Today</div>
+            <div class="lbl"><span class="swatch sw-urgent" aria-hidden="true"></span> Urgent Today</div>
           </div>
           <div class="stat clickable" id="tile-tomorrow" aria-label="Jump to first Due Tomorrow" tabindex="0">
             <div class="num" id="kpi-tomorrow">—</div>
-            <div class="lbl">Due Tomorrow</div>
+            <div class="lbl"><span class="swatch sw-tomorrow" aria-hidden="true"></span> Due Tomorrow</div>
           </div>
           <div class="stat clickable" id="tile-pastdue" aria-label="Jump to first Past Due" tabindex="0">
             <div class="num" id="kpi-pastdue">—</div>
-            <div class="lbl">Past Due</div>
+            <div class="lbl"><span class="swatch sw-past" aria-hidden="true"></span> Past Due</div>
           </div>
           <div class="stat clickable" id="tile-upcoming" aria-label="Jump to first Upcoming" tabindex="0">
             <div class="num" id="kpi-upcoming">—</div>
-            <div class="lbl">Upcoming</div>
+            <div class="lbl"><span class="swatch sw-up" aria-hidden="true"></span> Upcoming</div>
           </div>
         </div>
       </section>
@@ -431,7 +409,6 @@
     const scrollToFirst = (selector, fallbackId) => {
       const el = document.querySelector(selector) || document.getElementById(fallbackId);
       if (!el) return;
-      // If it's a card, flash it; if it's a section, just scroll
       let card = el.matches('.assignment-card') ? el : el.querySelector('.assignment-card');
       (card || el).scrollIntoView({ behavior: 'smooth', block: 'start' });
       if (card) {
@@ -440,7 +417,6 @@
       }
     };
 
-    // Make tiles clickable (keyboard friendly too)
     const bindJump = (tileId, querySelector, fallbackId) => {
       const t = document.getElementById(tileId);
       if (!t) return;
@@ -456,12 +432,13 @@
     bindJump('tile-pastdue',   '#grid .assignment-card.past-due', 'grid');
     bindJump('tile-upcoming',  '#grid .assignment-card.todo',     'grid');
 
-    // (Optional) tile-total -> scroll to top
+    // tile-total -> scroll to top
     const tileTotal = document.getElementById('tile-total');
     if (tileTotal) {
-      tileTotal.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      const handler = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+      tileTotal.addEventListener('click', handler);
       tileTotal.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
       });
     }
   })();

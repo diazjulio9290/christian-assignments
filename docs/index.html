@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Christian — 6th Grade Assignments (Canvas)</title>
-  <meta name="description" content="Christian — 6th Grade assignments with direct Canvas links. Auto-updated from Canvas calendar feed." />
+  <meta name="description" content="Christian — 6th Grade assignments auto-updated from Canvas calendar feed." />
 
   <style>
     /* ===== Base layout & type ===== */
@@ -19,6 +19,7 @@
       min-height: 100vh;
       padding: 20px;
       color: #e2e8f0;
+      scroll-behavior: smooth; /* enable smooth anchor scroll as fallback */
     }
     .wrap { max-width: 1200px; margin: 0 auto; }
 
@@ -112,6 +113,7 @@
         inset 0 -2px 0 rgba(0,0,0,.2),
         0 4px 8px rgba(0,0,0,.3);
       position:relative;
+      transition: transform .15s ease, box-shadow .15s ease;
     }
     .stat::before{
       content:''; position:absolute; top:4px; left:50%; transform:translateX(-50%);
@@ -120,6 +122,13 @@
     }
     .num{ font-size:28px; font-weight:900; color:#e2e8f0; text-shadow:0 0 5px rgba(66,153,225,.3); }
     .lbl{ color:#a0aec0; font-size:14px; }
+    /* clickable KPI tiles */
+    .clickable { cursor: pointer; }
+    .clickable:focus, .clickable:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,.35), inset 0 2px 0 rgba(255,255,255,.14);
+      outline: none;
+    }
 
     /* ===== Assignment grid & cards ===== */
     .assignments-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; }
@@ -204,7 +213,7 @@
     .past-due .due-date{ color:#b794f6; text-shadow:0 0 5px rgba(128,90,213,.5); }
     .past-due .status-badge{ background:linear-gradient(45deg,#805ad5,#b794f6); }
 
-    /* “Upcoming” (future due dates) */
+    /* “Upcoming” (future due dates after tomorrow) */
     .todo{
       border-color:#3182ce;
       background: linear-gradient(135deg,#2a4365 0%,#3182ce 100%);
@@ -254,6 +263,14 @@
       border-top-color:#4299e1; animation:spin 1s linear infinite;
     }
     @keyframes spin{ to{ transform:rotate(360deg); } }
+
+    /* flash highlight after KPI jump */
+    @keyframes flash {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.0), 0 0 0 rgba(66,153,225,0); }
+      30% { box-shadow: 0 0 0 6px rgba(66,153,225,0.35); }
+      100% { box-shadow: 0 0 0 0 rgba(66,153,225,0); }
+    }
+    .flash { animation: flash 1.2s ease-out 1; }
   </style>
 </head>
 
@@ -276,23 +293,23 @@
       <!-- KPI Summary -->
       <section class="summary" aria-label="Mission Summary">
         <div class="summary-grid">
-          <div class="stat">
+          <div class="stat" id="tile-total" aria-label="Jump to top" tabindex="0">
             <div class="num" id="kpi-total">—</div>
             <div class="lbl">Total Missions</div>
           </div>
-          <div class="stat">
+          <div class="stat clickable" id="tile-today" aria-label="Jump to first Due Today" tabindex="0">
             <div class="num" id="kpi-today">—</div>
             <div class="lbl">Urgent Today</div>
           </div>
-          <div class="stat">
+          <div class="stat clickable" id="tile-tomorrow" aria-label="Jump to first Due Tomorrow" tabindex="0">
             <div class="num" id="kpi-tomorrow">—</div>
             <div class="lbl">Due Tomorrow</div>
           </div>
-          <div class="stat">
+          <div class="stat clickable" id="tile-pastdue" aria-label="Jump to first Past Due" tabindex="0">
             <div class="num" id="kpi-pastdue">—</div>
             <div class="lbl">Past Due</div>
           </div>
-          <div class="stat">
+          <div class="stat clickable" id="tile-upcoming" aria-label="Jump to first Upcoming" tabindex="0">
             <div class="num" id="kpi-upcoming">—</div>
             <div class="lbl">Upcoming</div>
           </div>
@@ -317,27 +334,37 @@
     const grid = document.getElementById('grid');
     const gridTomorrow = document.getElementById('grid-tomorrow');
     const tomorrowTitle = document.getElementById('tomorrow-title');
-    const set = (id, v) => document.getElementById(id).textContent = v;
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
 
-    const badgeFor = s => (
-      s==='urgent'   ? 'Due Today' :
-      s==='past-due' ? 'Past Due'  :
-      s==='no-due'   ? 'No Due Date' :
-      s==='completed'? 'Completed' : 'Upcoming'
-    );
-
-    const clsFor = s => (
-      s==='urgent' || s==='past-due' || s==='no-due' || s==='completed'
-        ? s : 'todo'   // any future-dated item we treat as Upcoming
-    );
-
-    // Day windows: today, tomorrow
+    // Day windows (local time)
     const startToday = new Date(); startToday.setHours(0,0,0,0);
     const startTomorrow = new Date(startToday); startTomorrow.setDate(startTomorrow.getDate() + 1);
-    const endTomorrow = new Date(startTomorrow); endTomorrow.setDate(endTomorrow.getDate() + 1);
+    const startDayAfterTomorrow = new Date(startTomorrow); startDayAfterTomorrow.setDate(startDayAfterTomorrow.getDate() + 1);
 
-    const isTomorrow = (i) => i.due_at && (d => d >= startTomorrow && d < endTomorrow)(new Date(i.due_at));
-    const isUpcoming = (i) => i.due_at && new Date(i.due_at) >= endTomorrow; // strictly after tomorrow
+    const hasDue = (i) => !!i.due_at;
+    const dueDate = (i) => new Date(i.due_at);
+
+    const isToday    = (i) => hasDue(i) && dueDate(i) >= startToday && dueDate(i) < startTomorrow;
+    const isTomorrow = (i) => hasDue(i) && dueDate(i) >= startTomorrow && dueDate(i) < startDayAfterTomorrow;
+    const isPastDue  = (i) => hasDue(i) && dueDate(i) < startToday;
+    const isUpcoming = (i) => hasDue(i) && dueDate(i) >= startDayAfterTomorrow; // strictly after tomorrow
+
+    const bucketFor = (i) => {
+      if (isToday(i)) return 'urgent';
+      if (isTomorrow(i)) return 'tomorrow';
+      if (isPastDue(i)) return 'past-due';
+      if (isUpcoming(i)) return 'todo';     // "Upcoming" uses .todo class
+      return 'no-due';
+    };
+
+    const badgeFor = (bucket) => ({
+      'urgent':   'Due Today',
+      'tomorrow': 'Due Tomorrow',
+      'past-due': 'Past Due',
+      'todo':     'Upcoming',
+      'no-due':   'No Due Date',
+      'completed':'Completed'
+    }[bucket] || 'Upcoming');
 
     const dateRow = (iso) => {
       const txt = iso ? new Date(iso).toLocaleString() : 'No Due Date';
@@ -350,50 +377,92 @@
         </div>`;
     };
 
+    // Render a single card
+    const renderCard = (i, forcedBucket=null) => {
+      const bucket = forcedBucket || bucketFor(i);
+      return `
+        <article class="assignment-card ${bucket}">
+          <div class="status-badge">${badgeFor(bucket)}</div>
+          <div class="assignment-title">${i.title}</div>
+          <div class="course-info">${i.course || ''}</div>
+          ${dateRow(i.due_at)}
+        </article>`;
+    };
+
+    // Load data
+    let items = [];
     try {
       const res = await fetch('./assignments.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('No assignments.json yet');
-      const items = await res.json();
-
-      // KPIs
-      const tmr = items.filter(isTomorrow);
-      set('kpi-total', items.length);
-      set('kpi-today', items.filter(i => i.status === 'urgent').length);
-      set('kpi-tomorrow', tmr.length);
-      set('kpi-pastdue', items.filter(i => i.status === 'past-due').length);
-      set('kpi-upcoming', items.filter(isUpcoming).length);
-
-      // Render helper
-      const renderCard = (i, forceTomorrow=false) => {
-        const isT = forceTomorrow || isTomorrow(i);
-        const cls = isT ? 'tomorrow' : clsFor(i.status);
-        const badge = isT ? 'Due Tomorrow' : badgeFor(i.status);
-        return `
-          <article class="assignment-card ${cls}">
-            <div class="status-badge">${badge}</div>
-            <div class="assignment-title">${i.title}</div>
-            <div class="course-info">${i.course || ''}</div>
-            ${dateRow(i.due_at)}
-          </article>`;
-      };
-
-      // Tomorrow section
-      if (tmr.length) {
-        gridTomorrow.innerHTML = tmr.map(i => renderCard(i, true)).join('');
-        tomorrowTitle.style.display = '';
-      } else {
-        gridTomorrow.innerHTML = '';
-        tomorrowTitle.style.display = 'none';
-      }
-
-      // Main grid: everything else (not tomorrow)
-      const others = items.filter(i => !isTomorrow(i));
-      grid.innerHTML = others.map(i => renderCard(i)).join('');
-
+      items = await res.json();
     } catch (e) {
       if (gridTomorrow) { gridTomorrow.innerHTML = ''; tomorrowTitle && (tomorrowTitle.style.display='none'); }
       grid.innerHTML = '<p style="color:#fc8181; display:flex; align-items:center; gap:10px;"><span class="loading"></span>assignments.json not found yet — the sync will create it shortly.</p>';
       console.error(e);
+      return;
+    }
+
+    // KPIs computed from dates
+    const listToday     = items.filter(isToday);
+    const listTomorrow  = items.filter(isTomorrow);
+    const listPastDue   = items.filter(isPastDue);
+    const listUpcoming  = items.filter(isUpcoming);
+
+    set('kpi-total', items.length);
+    set('kpi-today', listToday.length);
+    set('kpi-tomorrow', listTomorrow.length);
+    set('kpi-pastdue', listPastDue.length);
+    set('kpi-upcoming', listUpcoming.length);
+
+    // Tomorrow section
+    if (listTomorrow.length) {
+      gridTomorrow.innerHTML = listTomorrow.map(i => renderCard(i, 'tomorrow')).join('');
+      tomorrowTitle.style.display = '';
+    } else {
+      gridTomorrow.innerHTML = '';
+      tomorrowTitle.style.display = 'none';
+    }
+
+    // Main grid: everything else (not tomorrow)
+    const others = items.filter(i => !isTomorrow(i));
+    grid.innerHTML = others.map(i => renderCard(i)).join('');
+
+    // ===== KPI tile click handlers: jump to first card in bucket and flash =====
+    const scrollToFirst = (selector, fallbackId) => {
+      const el = document.querySelector(selector) || document.getElementById(fallbackId);
+      if (!el) return;
+      // If it's a card, flash it; if it's a section, just scroll
+      let card = el.matches('.assignment-card') ? el : el.querySelector('.assignment-card');
+      (card || el).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (card) {
+        card.classList.add('flash');
+        setTimeout(() => card.classList.remove('flash'), 1400);
+      }
+    };
+
+    // Make tiles clickable (keyboard friendly too)
+    const bindJump = (tileId, querySelector, fallbackId) => {
+      const t = document.getElementById(tileId);
+      if (!t) return;
+      const handler = () => scrollToFirst(querySelector, fallbackId);
+      t.addEventListener('click', handler);
+      t.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
+      });
+    };
+
+    bindJump('tile-today',     '#grid .assignment-card.urgent',   'grid');
+    bindJump('tile-tomorrow',  '#grid-tomorrow .assignment-card', 'grid-tomorrow');
+    bindJump('tile-pastdue',   '#grid .assignment-card.past-due', 'grid');
+    bindJump('tile-upcoming',  '#grid .assignment-card.todo',     'grid');
+
+    // (Optional) tile-total -> scroll to top
+    const tileTotal = document.getElementById('tile-total');
+    if (tileTotal) {
+      tileTotal.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      tileTotal.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      });
     }
   })();
   </script>

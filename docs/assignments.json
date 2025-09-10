@@ -81,7 +81,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=09&year=2025#assignment_2258949"
     },
     "due_at": "2025-09-09T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Handbook Sign Off Due [Band 6 (F176Y)  Van Dyke]",

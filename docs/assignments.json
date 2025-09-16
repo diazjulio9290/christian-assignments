@@ -120,6 +120,18 @@
     "status": "todo"
   },
   {
+    "title": "16-Hot Cross Buns [Band 6 (F176Y)  Van Dyke]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156417&month=09&year=2025#assignment_2264298"
+    },
+    "due_at": "2025-09-23T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

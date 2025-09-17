@@ -132,6 +132,18 @@
     "status": "urgent"
   },
   {
+    "title": "FINISHED: Story Quilt Painting [Art 6 (F126X)  - Sem. 1 Stevenson]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=09&year=2025#assignment_2252007"
+    },
+    "due_at": "2025-09-17T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Handbook Sign Off Due [Band 6 (F176Y)  Van Dyke]",
     "course": "",
     "url": {

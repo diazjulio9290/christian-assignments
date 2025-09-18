@@ -156,6 +156,18 @@
     "status": "todo"
   },
   {
+    "title": "Compare & Contrast Paragraph (\"Bad Boy\" & \"I Was A Skinny Tomboy Kid\") [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=09&year=2025#assignment_2264071"
+    },
+    "due_at": "2025-09-19T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "16-Hot Cross Buns [Band 6 (F176Y)  Van Dyke]",
     "course": "",
     "url": {

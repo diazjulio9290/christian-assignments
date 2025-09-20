@@ -153,7 +153,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156417&month=09&year=2025#calendar_event_1866666"
     },
     "due_at": "2025-09-19T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "09/19 & 09/23/25  6th: Evaluating Expressions (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
@@ -165,7 +165,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=09&year=2025#assignment_2264386"
     },
     "due_at": "2025-09-19T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "16-Hot Cross Buns [Band 6 (F176Y)  Van Dyke]",

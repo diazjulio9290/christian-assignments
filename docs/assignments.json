@@ -177,7 +177,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156417&month=09&year=2025#assignment_2264298"
     },
     "due_at": "2025-09-23T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Emoji Kitchen  [Art 6 (F126X)  - Sem. 1 Stevenson]",
@@ -189,7 +189,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=09&year=2025#assignment_2266149"
     },
     "due_at": "2025-09-23T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",

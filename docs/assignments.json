@@ -204,6 +204,18 @@
     "status": "urgent"
   },
   {
+    "title": "SKILL PRACTICE: Grid Drawing [Art 6 (F126X)  - Sem. 1 Stevenson]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=09&year=2025#assignment_2265377"
+    },
+    "due_at": "2025-09-25T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

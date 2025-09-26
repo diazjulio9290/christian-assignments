@@ -213,7 +213,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=09&year=2025#assignment_2265377"
     },
     "due_at": "2025-09-25T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",

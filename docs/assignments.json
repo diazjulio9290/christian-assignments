@@ -240,18 +240,6 @@
     "status": "urgent"
   },
   {
-    "title": "Your Personal Narrative Plot Diagram [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=10&year=2025#assignment_2269865"
-    },
-    "due_at": "2025-10-02T00:00:00.000Z",
-    "status": "todo"
-  },
-  {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

@@ -237,7 +237,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=09&year=2025#assignment_2269704"
     },
     "due_at": "2025-09-30T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Your Personal Narrative Plot Diagram [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",

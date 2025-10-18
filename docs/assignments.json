@@ -189,7 +189,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=10&year=2025#assignment_2277520"
     },
     "due_at": "2025-10-17T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "REFLECTION: Pattern Portraits [Art 6 (F126X)  - Sem. 1 Stevenson]",
@@ -201,7 +201,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=10&year=2025#assignment_2276780"
     },
     "due_at": "2025-10-17T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Language Arts Notebook Due [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",

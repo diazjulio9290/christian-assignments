@@ -1,17 +1,5 @@
 [
   {
-    "title": "Handbook Sign Off Due [Band 6 (F176Y)  Van Dyke]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156417&month=09&year=2025#calendar_event_1866666"
-    },
-    "due_at": "2025-09-19T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "09/19 & 09/23/25  6th: Evaluating Expressions (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
     "course": "",
     "url": {

@@ -201,7 +201,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=10&year=2025#assignment_2276991"
     },
     "due_at": "2025-10-23T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "SOS! (Save Our Seas!) Digital Collage [Art 6 (F126X)  - Sem. 1 Stevenson]",
@@ -213,7 +213,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=10&year=2025#assignment_2274696"
     },
     "due_at": "2025-10-24T00:00:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",

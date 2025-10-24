@@ -192,18 +192,6 @@
     "status": "urgent"
   },
   {
-    "title": "SOS! (Save Our Seas!) Digital Collage [Art 6 (F126X)  - Sem. 1 Stevenson]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=10&year=2025#assignment_2274696"
-    },
-    "due_at": "2025-10-24T00:00:00.000Z",
-    "status": "urgent"
-  },
-  {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

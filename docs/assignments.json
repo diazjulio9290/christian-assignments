@@ -168,6 +168,18 @@
     "status": "urgent"
   },
   {
+    "title": "Personal Narrative Final Draft Due [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=10&year=2025#assignment_2281624"
+    },
+    "due_at": "2025-10-29T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

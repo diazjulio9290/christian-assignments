@@ -156,6 +156,18 @@
     "status": "past-due"
   },
   {
+    "title": "10/29 & 10/30/25  6th: Solving Inequalities #1 (no flipping the sign) (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=10&year=2025#assignment_2282652"
+    },
+    "due_at": "2025-10-29T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Personal Narrative Final Draft Due [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
     "course": "",
     "url": {

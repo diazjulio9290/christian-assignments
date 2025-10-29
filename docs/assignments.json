@@ -1,17 +1,5 @@
 [
   {
-    "title": "Wind turbine information [Science 6 (SUMMA) (C116YS)  Price]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=09&year=2025#calendar_event_1895116"
-    },
-    "due_at": "2025-09-29T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "09/30 & 10/01/25  6th: Delta Math Review for Quiz #1 (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
     "course": "",
     "url": {

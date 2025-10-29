@@ -177,7 +177,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=10&year=2025#assignment_2281624"
     },
     "due_at": "2025-10-29T00:00:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "Personal Narrative Reflection [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
@@ -189,7 +189,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=10&year=2025#assignment_2282272"
     },
     "due_at": "2025-10-29T00:00:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "Step Aerobics Vocabulary  [PE/Health6 (SUMMA) (P126YS)  Damiano]",
@@ -201,7 +201,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_161096&month=10&year=2025#assignment_2278657"
     },
     "due_at": "2025-10-29T06:30:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",

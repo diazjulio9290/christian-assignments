@@ -180,6 +180,18 @@
     "status": "past-due"
   },
   {
+    "title": "11/03 & 11/04/25  6th: Solving Inequalities #2 (flipping the sign) (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=11&year=2025#assignment_2284096"
+    },
+    "due_at": "2025-11-03T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "Personal Narrative Story Cover [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
     "course": "",
     "url": {

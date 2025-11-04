@@ -189,7 +189,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=11&year=2025#assignment_2284096"
     },
     "due_at": "2025-11-03T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Personal Narrative Story Cover [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
@@ -201,7 +201,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=11&year=2025#assignment_2282851"
     },
     "due_at": "2025-11-03T17:30:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Handball [PE/Health6 (SUMMA) (P126YS)  Damiano]",

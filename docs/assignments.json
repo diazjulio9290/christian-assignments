@@ -228,6 +228,18 @@
     "status": "urgent"
   },
   {
+    "title": "FINISHED: Watercolor Coral Collage [Art 6 (F126X)  - Sem. 1 Stevenson]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=11&year=2025#assignment_2286339"
+    },
+    "due_at": "2025-11-05T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Handball [PE/Health6 (SUMMA) (P126YS)  Damiano]",
     "course": "",
     "url": {

@@ -312,6 +312,18 @@
     "status": "todo"
   },
   {
+    "title": "2 SREP #2 Inquiry/Experiment Project-Information for writing Background Research Information for SREP #2 [Science 6 (SUMMA) (C116YS)  Price]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=12&year=2025#assignment_2287975"
+    },
+    "due_at": "2025-12-09T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

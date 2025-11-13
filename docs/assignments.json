@@ -192,18 +192,6 @@
     "status": "past-due"
   },
   {
-    "title": "Art Conference Slide  [Art 6 (F126X)  - Sem. 1 Stevenson]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=11&year=2025#assignment_2286056"
-    },
-    "due_at": "2025-11-05T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "FINISHED: Watercolor Coral Collage [Art 6 (F126X)  - Sem. 1 Stevenson]",
     "course": "",
     "url": {

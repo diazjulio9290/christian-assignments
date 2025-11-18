@@ -237,7 +237,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=11&year=2025#assignment_2287997"
     },
     "due_at": "2025-11-17T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "11/17 & 11/18/25  6th: Review for Quiz #3: Equations & Inequalities (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
@@ -249,7 +249,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=11&year=2025#assignment_2289915"
     },
     "due_at": "2025-11-17T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",

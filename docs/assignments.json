@@ -273,7 +273,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156417&month=11&year=2025#calendar_event_1866669"
     },
     "due_at": "2025-11-20T02:30:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Selection Test: Eyes Looking to the Sky (Online) (Language Arts 6 Per. 5 Nagelmann L116YS-03) [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
@@ -285,7 +285,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=11&year=2025#assignment_2293539"
     },
     "due_at": "2025-11-21T00:00:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "MAKING CONNECTIONS: Weaving Around the World [Art 6 (F126X)  - Sem. 1 Stevenson]",
@@ -297,7 +297,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=11&year=2025#assignment_2286845"
     },
     "due_at": "2025-11-21T00:05:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "Optional Conference Video (for 25 JAG bucks) [Math 7/8 (SUMMA) (M140YS)  Brandon]",

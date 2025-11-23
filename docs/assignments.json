@@ -273,7 +273,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=11&year=2025#assignment_2288322"
     },
     "due_at": "2025-11-22T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "2 SREP #2 Inquiry/Experiment Project-Information for writing Background Research Information for SREP #2 [Science 6 (SUMMA) (C116YS)  Price]",

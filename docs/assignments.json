@@ -216,6 +216,18 @@
     "status": "urgent"
   },
   {
+    "title": "H6.1.4 Health Triangle Quiz [PE/Health6 (SUMMA) (P126YS)  Damiano]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_161096&month=12&year=2025#assignment_2190099"
+    },
+    "due_at": "2025-12-03T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "REFLECTION: How to Make a Weave Comic [Art 6 (F126X)  - Sem. 1 Stevenson]",
     "course": "",
     "url": {
@@ -225,18 +237,6 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=12&year=2025#assignment_2294604"
     },
     "due_at": "2025-12-03T00:00:00.000Z",
-    "status": "todo"
-  },
-  {
-    "title": "H6.1.4 Health Triangle Quiz [PE/Health6 (SUMMA) (P126YS)  Damiano]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_161096&month=12&year=2025#assignment_2190099"
-    },
-    "due_at": "2025-12-05T00:00:00.000Z",
     "status": "todo"
   },
   {

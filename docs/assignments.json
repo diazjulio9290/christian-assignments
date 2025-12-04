@@ -216,6 +216,18 @@
     "status": "urgent"
   },
   {
+    "title": "SKETCH: Animal Head Sculpture [Art 6 (F126X)  - Sem. 1 Stevenson]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=12&year=2025#assignment_2295833"
+    },
+    "due_at": "2025-12-04T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Echolocation Oral Report [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
     "course": "",
     "url": {

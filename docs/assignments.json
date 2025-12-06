@@ -1,41 +1,5 @@
 [
   {
-    "title": "11/05 & 11/12/25  6th: Creating Integer Coefficients (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=11&year=2025#assignment_2286128"
-    },
-    "due_at": "2025-11-05T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
-    "title": "FINISHED: Watercolor Coral Collage [Art 6 (F126X)  - Sem. 1 Stevenson]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=11&year=2025#assignment_2286339"
-    },
-    "due_at": "2025-11-05T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
-    "title": "Unit Test: Unit 1 (Online) (Language Arts 6 Per. 5 Nagelmann L116YS-03) [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=11&year=2025#assignment_2285891"
-    },
-    "due_at": "2025-11-05T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "Science fair idea website [Science 6 (SUMMA) (C116YS)  Price]",
     "course": "",
     "url": {

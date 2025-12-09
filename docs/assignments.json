@@ -228,6 +228,18 @@
     "status": "urgent"
   },
   {
+    "title": "Copy of 3 SREP #3 - Writing your procedure (Science 6 Per. 2 Price C116YS-02) [Science 6 (SUMMA) (C116YS)  Price]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=12&year=2025#assignment_2297437"
+    },
+    "due_at": "2025-12-19T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

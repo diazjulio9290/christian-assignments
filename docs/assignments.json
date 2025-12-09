@@ -216,6 +216,18 @@
     "status": "past-due"
   },
   {
+    "title": "Link to activity [Science 6 (SUMMA) (C116YS)  Price]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=12&year=2025#calendar_event_1958316"
+    },
+    "due_at": "2025-12-09T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "2 SREP #2 Inquiry/Experiment Project-Information for writing Background Research Information for SREP #2 [Science 6 (SUMMA) (C116YS)  Price]",
     "course": "",
     "url": {

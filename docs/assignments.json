@@ -225,7 +225,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=12&year=2025#calendar_event_1958316"
     },
     "due_at": "2025-12-09T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "2 SREP #2 Inquiry/Experiment Project-Information for writing Background Research Information for SREP #2 [Science 6 (SUMMA) (C116YS)  Price]",
@@ -237,7 +237,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=12&year=2025#assignment_2287975"
     },
     "due_at": "2025-12-09T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Copy of 3 SREP #3 - Writing your procedure (Science 6 Per. 2 Price C116YS-02) [Science 6 (SUMMA) (C116YS)  Price]",

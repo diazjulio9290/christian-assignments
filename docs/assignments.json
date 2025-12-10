@@ -204,18 +204,6 @@
     "status": "past-due"
   },
   {
-    "title": "Echolocation Oral Report [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=12&year=2025#assignment_2295533"
-    },
-    "due_at": "2025-12-08T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "Link to activity [Science 6 (SUMMA) (C116YS)  Price]",
     "course": "",
     "url": {
@@ -247,6 +235,18 @@
         "VALUE": "URI"
       },
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=12&year=2025#assignment_2298097"
+    },
+    "due_at": "2025-12-10T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
+    "title": "Echolocation Oral Report [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=12&year=2025#assignment_2295533"
     },
     "due_at": "2025-12-10T00:00:00.000Z",
     "status": "urgent"

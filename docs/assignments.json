@@ -1,17 +1,5 @@
 [
   {
-    "title": "Handball [PE/Health6 (SUMMA) (P126YS)  Damiano]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_161096&month=11&year=2025#assignment_2284359"
-    },
-    "due_at": "2025-11-14T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "1 Project Proposal  (Science 6 Per. 2 Price C116YS-02) [Science 6 (SUMMA) (C116YS)  Price]",
     "course": "",
     "url": {

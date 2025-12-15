@@ -228,6 +228,18 @@
     "status": "past-due"
   },
   {
+    "title": "Selection Test: Ada and the Thinking Machines (Online) (Language Arts 6 Per. 5 Nagelmann L116YS-03) [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=12&year=2025#assignment_2299704"
+    },
+    "due_at": "2025-12-16T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "Copy of 3 SREP #3 - Writing your procedure (Science 6 Per. 2 Price C116YS-02) [Science 6 (SUMMA) (C116YS)  Price]",
     "course": "",
     "url": {

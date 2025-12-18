@@ -1,41 +1,5 @@
 [
   {
-    "title": "1 Project Proposal  (Science 6 Per. 2 Price C116YS-02) [Science 6 (SUMMA) (C116YS)  Price]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=11&year=2025#assignment_2287997"
-    },
-    "due_at": "2025-11-17T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
-    "title": "11/17 & 11/18/25  6th: Review for Quiz #3: Equations & Inequalities (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=11&year=2025#assignment_2289915"
-    },
-    "due_at": "2025-11-17T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
-    "title": "science buddies resource for science fair science question [Science 6 (SUMMA) (C116YS)  Price]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=11&year=2025#calendar_event_1949092"
-    },
-    "due_at": "2025-11-18T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

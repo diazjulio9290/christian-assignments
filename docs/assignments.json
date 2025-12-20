@@ -1,17 +1,5 @@
 [
   {
-    "title": "Fall Concert [Band 6 (F176Y)  Van Dyke]",
-    "course": "Stoller Gym",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156417&month=11&year=2025#calendar_event_1866669"
-    },
-    "due_at": "2025-11-20T02:30:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "Selection Test: Eyes Looking to the Sky (Online) (Language Arts 6 Per. 5 Nagelmann L116YS-03) [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
     "course": "",
     "url": {

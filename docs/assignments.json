@@ -1,29 +1,5 @@
 [
   {
-    "title": "H6.1.4 Health Triangle Quiz [PE/Health6 (SUMMA) (P126YS)  Damiano]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_161096&month=12&year=2025#assignment_2190099"
-    },
-    "due_at": "2025-12-03T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
-    "title": "REFLECTION: How to Make a Weave Comic [Art 6 (F126X)  - Sem. 1 Stevenson]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=12&year=2025#assignment_2294604"
-    },
-    "due_at": "2025-12-03T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "12/04 & 12/05/25  6th: CC2 7.2.2: Solving Proportions  (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
     "course": "",
     "url": {

@@ -108,6 +108,18 @@
     "status": "past-due"
   },
   {
+    "title": "Science Fair Registration [Science 6 (SUMMA) (C116YS)  Price]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=01&year=2026#calendar_event_1968151"
+    },
+    "due_at": "2026-01-07T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

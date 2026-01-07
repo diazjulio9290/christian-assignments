@@ -108,6 +108,18 @@
     "status": "past-due"
   },
   {
+    "title": "FINISHED: Animal Head Sculpture [Art 6 (F126X)  - Sem. 1 Stevenson]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=01&year=2026#assignment_2300843"
+    },
+    "due_at": "2026-01-06T00:00:00.000Z",
+    "status": "past-due"
+  },
+  {
     "title": "Science Fair Registration [Science 6 (SUMMA) (C116YS)  Price]",
     "course": "",
     "url": {

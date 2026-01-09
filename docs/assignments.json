@@ -129,7 +129,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=01&year=2026#assignment_2304890"
     },
     "due_at": "2026-01-08T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",

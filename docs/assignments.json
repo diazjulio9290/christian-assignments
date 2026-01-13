@@ -96,6 +96,18 @@
     "status": "past-due"
   },
   {
+    "title": "Link to NASA website [WIN 6 (696Y)  Price]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156132&month=01&year=2026#calendar_event_1973792"
+    },
+    "due_at": "2026-01-13T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Science Inquiry Write-up Template [Science 6 (SUMMA) (C116YS)  Price]",
     "course": "",
     "url": {

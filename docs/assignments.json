@@ -120,6 +120,18 @@
     "status": "urgent"
   },
   {
+    "title": "FINISHED Radial Prints [Art 6 (F126X)  - Sem. 1 Stevenson]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156040&month=01&year=2026#assignment_2305158"
+    },
+    "due_at": "2026-01-16T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Science Inquiry Write-up Template [Science 6 (SUMMA) (C116YS)  Price]",
     "course": "",
     "url": {

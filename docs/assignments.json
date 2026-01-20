@@ -120,6 +120,18 @@
     "status": "past-due"
   },
   {
+    "title": "Science Fair Registration Form [Science 6 (SUMMA) (C116YS)  Price]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=01&year=2026#calendar_event_1976631"
+    },
+    "due_at": "2026-01-20T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Science Inquiry Write-up Template [Science 6 (SUMMA) (C116YS)  Price]",
     "course": "",
     "url": {

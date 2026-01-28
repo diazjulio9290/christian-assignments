@@ -48,18 +48,6 @@
     "status": "past-due"
   },
   {
-    "title": "Link to NASA website [WIN 6 (696Y)  Price]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156132&month=01&year=2026#calendar_event_1973792"
-    },
-    "due_at": "2026-01-13T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "01/14 & 01/15/26  6th: Proportions and Percents Review #1 (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
     "course": "",
     "url": {

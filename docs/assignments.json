@@ -96,6 +96,18 @@
     "status": "past-due"
   },
   {
+    "title": "01/28/26  6th: Design Your Own Food Truck Part 1: Design Your Truck and Menu  (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=01&year=2026#assignment_2352581"
+    },
+    "due_at": "2026-01-28T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

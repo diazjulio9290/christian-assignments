@@ -108,6 +108,18 @@
     "status": "past-due"
   },
   {
+    "title": "01/30 & 02/02/26  6th: Food Truck Part 2: Select Your Truck & Simple Interest (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=01&year=2026#assignment_2359815"
+    },
+    "due_at": "2026-01-30T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

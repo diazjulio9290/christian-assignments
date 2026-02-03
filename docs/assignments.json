@@ -120,6 +120,18 @@
     "status": "past-due"
   },
   {
+    "title": "02/03 & 02/04/26 6th: Food Truck Parts 3 & 4: Take Your Orders & Sales Tax and Discounts (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=02&year=2026#assignment_2365013"
+    },
+    "due_at": "2026-02-03T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

@@ -84,6 +84,18 @@
     "status": "past-due"
   },
   {
+    "title": "02/18 & 02/19/26  6th: CC3 9.1.3: Exterior Angles in Triangles (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=02&year=2026#assignment_2370497"
+    },
+    "due_at": "2026-02-18T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

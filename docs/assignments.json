@@ -96,6 +96,18 @@
     "status": "urgent"
   },
   {
+    "title": "Information Essay Final Draft [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=02&year=2026#assignment_2370977"
+    },
+    "due_at": "2026-02-20T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
     "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",
     "course": "Stoller Gym",
     "url": {

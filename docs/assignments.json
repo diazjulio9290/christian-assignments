@@ -153,7 +153,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=03&year=2026#assignment_2383324"
     },
     "due_at": "2026-03-31T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Selection Test: Social Media Influencers Impact Teens (Online) (Language Arts 6 Per. 5 Nagelmann L116YS-03) [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",
@@ -165,7 +165,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156462&month=03&year=2026#assignment_2383362"
     },
     "due_at": "2026-03-31T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "OPTIONAL Math 8 Advancement Prep: Expressions & Equations [Math 7/8 (SUMMA) (M140YS)  Brandon]",

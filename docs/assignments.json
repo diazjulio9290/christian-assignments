@@ -24,18 +24,6 @@
     "status": "past-due"
   },
   {
-    "title": "Almost Spring Concert [Band 6 (F176Y)  Van Dyke]",
-    "course": "Stoller Gym",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156417&month=03&year=2026#calendar_event_1866672"
-    },
-    "due_at": "2026-03-12T01:30:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "03/16 & 03/17/26  6th: Area, Volume, & Surface Area Review (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
     "course": "",
     "url": {

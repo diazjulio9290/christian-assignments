@@ -93,7 +93,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2366949"
     },
     "due_at": "2026-04-21T00:00:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "OPTIONAL Math 8 Advancement Prep: Functions [Math 7/8 (SUMMA) (M140YS)  Brandon]",
@@ -105,7 +105,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2366952"
     },
     "due_at": "2026-04-21T00:00:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "OPTIONAL Math 8 Advancement Prep: Geometric Reasoning & Measurement [Math 7/8 (SUMMA) (M140YS)  Brandon]",
@@ -117,7 +117,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2366959"
     },
     "due_at": "2026-04-21T00:00:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "OPTIONAL Math 8 Advancement Prep: Number Systems [Math 7/8 (SUMMA) (M140YS)  Brandon]",
@@ -129,7 +129,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2366957"
     },
     "due_at": "2026-04-21T00:00:00.000Z",
-    "status": "todo"
+    "status": "urgent"
   },
   {
     "title": "Loyalty Day Parade [Band 6 (F176Y)  Van Dyke]",

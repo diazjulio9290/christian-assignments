@@ -189,7 +189,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2392627"
     },
     "due_at": "2026-04-27T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Loyalty Day Parade [Band 6 (F176Y)  Van Dyke]",

@@ -201,7 +201,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2393893"
     },
     "due_at": "2026-04-29T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "04/29 & 04/30/26  6th: Probability & Integers #4 (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
@@ -213,7 +213,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2393876"
     },
     "due_at": "2026-04-29T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Loyalty Day Parade [Band 6 (F176Y)  Van Dyke]",

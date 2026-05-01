@@ -192,6 +192,18 @@
     "status": "past-due"
   },
   {
+    "title": "05/01 & 05/04/26  6th: OSAS Prep: Review of 6th grade targets (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=05&year=2026#assignment_2394546"
+    },
+    "due_at": "2026-05-01T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "Loyalty Day Parade [Band 6 (F176Y)  Van Dyke]",
     "course": "Long Beach, Washington, (Meet at Stoller)",
     "url": {

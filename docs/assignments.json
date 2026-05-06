@@ -213,7 +213,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=05&year=2026#assignment_2395925"
     },
     "due_at": "2026-05-05T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "Argument Essay Final Draft [Lang Arts 6 (SUMMA) (L116YS)  Nagelmann]",

@@ -12,54 +12,6 @@
     "status": "past-due"
   },
   {
-    "title": "OPTIONAL Math 8 Advancement Prep: Expressions & Equations [Math 7/8 (SUMMA) (M140YS)  Brandon]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2366949"
-    },
-    "due_at": "2026-04-21T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
-    "title": "OPTIONAL Math 8 Advancement Prep: Functions [Math 7/8 (SUMMA) (M140YS)  Brandon]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2366952"
-    },
-    "due_at": "2026-04-21T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
-    "title": "OPTIONAL Math 8 Advancement Prep: Geometric Reasoning & Measurement [Math 7/8 (SUMMA) (M140YS)  Brandon]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2366959"
-    },
-    "due_at": "2026-04-21T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
-    "title": "OPTIONAL Math 8 Advancement Prep: Number Systems [Math 7/8 (SUMMA) (M140YS)  Brandon]",
-    "course": "",
-    "url": {
-      "params": {
-        "VALUE": "URI"
-      },
-      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=04&year=2026#assignment_2366957"
-    },
-    "due_at": "2026-04-21T00:00:00.000Z",
-    "status": "past-due"
-  },
-  {
     "title": "04/23 & 04/24/26  6th Warmup: Delta Math Probability Practice (Mathematics 7/8 Per. 1 Brandon M140YS-02) [Math 7/8 (SUMMA) (M140YS)  Brandon]",
     "course": "",
     "url": {
@@ -249,6 +201,54 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156417&month=05&year=2026#calendar_event_1866681"
     },
     "due_at": "2026-05-21T01:30:00.000Z",
+    "status": "todo"
+  },
+  {
+    "title": "OPTIONAL Math 8 Advancement Prep: Expressions & Equations [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=06&year=2026#assignment_2366949"
+    },
+    "due_at": "2026-06-11T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
+    "title": "OPTIONAL Math 8 Advancement Prep: Functions [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=06&year=2026#assignment_2366952"
+    },
+    "due_at": "2026-06-11T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
+    "title": "OPTIONAL Math 8 Advancement Prep: Geometric Reasoning & Measurement [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=06&year=2026#assignment_2366959"
+    },
+    "due_at": "2026-06-11T00:00:00.000Z",
+    "status": "todo"
+  },
+  {
+    "title": "OPTIONAL Math 8 Advancement Prep: Number Systems [Math 7/8 (SUMMA) (M140YS)  Brandon]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=06&year=2026#assignment_2366957"
+    },
+    "due_at": "2026-06-11T00:00:00.000Z",
     "status": "todo"
   }
 ]

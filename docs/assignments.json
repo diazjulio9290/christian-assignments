@@ -144,6 +144,18 @@
     "status": "past-due"
   },
   {
+    "title": "Link to digital escape room [Science 6 (SUMMA) (C116YS)  Price]",
+    "course": "",
+    "url": {
+      "params": {
+        "VALUE": "URI"
+      },
+      "val": "https://bsd.instructure.com/calendar?include_contexts=course_156307&month=06&year=2026#calendar_event_2041474"
+    },
+    "due_at": "2026-06-10T00:00:00.000Z",
+    "status": "urgent"
+  },
+  {
     "title": "OPTIONAL Math 8 Advancement Prep: Expressions & Equations [Math 7/8 (SUMMA) (M140YS)  Brandon]",
     "course": "",
     "url": {

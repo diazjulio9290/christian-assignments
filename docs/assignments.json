@@ -141,7 +141,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=06&year=2026#assignment_2366949"
     },
     "due_at": "2026-06-11T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "OPTIONAL Math 8 Advancement Prep: Functions [Math 7/8 (SUMMA) (M140YS)  Brandon]",
@@ -153,7 +153,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=06&year=2026#assignment_2366952"
     },
     "due_at": "2026-06-11T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "OPTIONAL Math 8 Advancement Prep: Geometric Reasoning & Measurement [Math 7/8 (SUMMA) (M140YS)  Brandon]",
@@ -165,7 +165,7 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=06&year=2026#assignment_2366959"
     },
     "due_at": "2026-06-11T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   },
   {
     "title": "OPTIONAL Math 8 Advancement Prep: Number Systems [Math 7/8 (SUMMA) (M140YS)  Brandon]",
@@ -177,6 +177,6 @@
       "val": "https://bsd.instructure.com/calendar?include_contexts=course_156538&month=06&year=2026#assignment_2366957"
     },
     "due_at": "2026-06-11T00:00:00.000Z",
-    "status": "urgent"
+    "status": "past-due"
   }
 ]
